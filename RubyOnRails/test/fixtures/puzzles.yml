@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  puzzle_type: 
+  image: MyString
+  lines: MyString
+  user_id: MyString
+  answer_cnt: MyString
+  fav_cnt: MyString
+  retweet_cnt: MyString
+  reference: MyString
+  price: MyString
+  has_best_answer: false
+  disable: false
+  extra1: MyString
+  extra2: MyString
+  extra3: MyString
+  extra4: MyString
+  extra5: MyString
+
+two:
+  id: 2
+  puzzle_type: 
+  image: MyString
+  lines: MyString
+  user_id: MyString
+  answer_cnt: MyString
+  fav_cnt: MyString
+  retweet_cnt: MyString
+  reference: MyString
+  price: MyString
+  has_best_answer: false
+  disable: false
+  extra1: MyString
+  extra2: MyString
+  extra3: MyString
+  extra4: MyString
+  extra5: MyString

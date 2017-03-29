@@ -1,0 +1,10 @@
+.row.setting
+  .span8
+    = simple_form_for @user, :url => forgot_password_path(@user.password_reset_token), :html => { :class => 'form-horizontal' } do |f|
+      %fieldset
+        %legend
+          = t :reset_password
+        = f.input :password, :label => "#{t :new_password}"
+        = f.input :password_confirmation, :label => "#{t :confirm_new_password}", :required => true
+      .form-actions
+        = f.button :submit, :class => 'btn-large btn-primary', :value => "#{t :save}"

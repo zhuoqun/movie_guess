@@ -1,0 +1,108 @@
+= render "shared/notifications_tpl"
+.container
+  .row.notifications
+    .span8
+      %h2
+        = t :notification
+      - if @data.blank?
+        .alert.alert-info
+          = t :no_notification
+      - else
+        %ul
+          - @data.each do |item|
+            - if ('follow' == item[:action])
+              %li{:class => item[:unread]}
+                %img.avatar{:src => item[:avatar], :width => '30px', :height => '30px'}
+                %a{:href => item[:user_path]}
+                  = item[:user_name]
+                = t :follow_you
+                %span.timestamp
+                  = item[:timestamp]
+            - elsif ('add' == item[:action] && 'answer' == item[:target_type])
+              %li{:class => item[:unread]}
+                %img.avatar{:src => item[:avatar], :width => '30px', :height => '30px'}
+                %a{:href => item[:user_path]}
+                  = item[:user_name]
+                = t :answer_your
+                %a{:href => item[:path]}
+                  = t :a_puzzle
+                %span.timestamp
+                  = item[:timestamp]
+            - elsif ('upvote' == item[:action] && 'answer' == item[:target_type])
+              %li{:class => item[:unread]}
+                %img.avatar{:src => item[:avatar], :width => '30px', :height => '30px'}
+                %a{:href => item[:user_path]}
+                  = item[:user_name]
+                = t :upvote_your
+                %a{:href => item[:path]}
+                  = t :an_answer
+                %span.timestamp
+                  = item[:timestamp]
+            - elsif ('mark_as_correct' == item[:action] && 'answer' == item[:target_type])
+              %li{:class => item[:unread]}
+                %img.avatar{:src => item[:avatar], :width => '30px', :height => '30px'}
+                %a{:href => item[:user_path]}
+                  = item[:user_name]
+                = t :mark_your
+                %a{:href => item[:path]}
+                  = t :an_answer
+                = t :mark_as_correct
+                %span.timestamp
+                  = item[:timestamp]
+            - elsif ('add' == item[:action] && 'comment' == item[:target_type])
+              %li{:class => item[:unread]}
+                %img.avatar{:src => item[:avatar], :width => '30px', :height => '30px'}
+                %a{:href => item[:user_path]}
+                  = item[:user_name]
+                = t :comment_your
+                %a{:href => item[:path]}
+                  = t :an_answer
+                %span.timestamp
+                  = item[:timestamp]
+            - elsif ('mention' == item[:action] && 'comment' == item[:target_type])
+              %li{:class => item[:unread]}
+                %img.avatar{:src => item[:avatar], :width => '30px', :height => '30px'}
+                %a{:href => item[:user_path]}
+                  = item[:user_name]
+                = t :in
+                %a{:href => item[:path]}
+                  = t :an_comment
+                = t :mention_you
+                %span.timestamp
+                  = item[:timestamp]
+            - elsif ('mention' == item[:action] && 'discussion' == item[:target_type])
+              %li{:class => item[:unread]}
+                %img.avatar{:src => item[:avatar], :width => '30px', :height => '30px'}
+                %a{:href => item[:user_path]}
+                  = item[:user_name]
+                = t :in
+                %a{:href => item[:path]}
+                  = t :an_discussion
+                = t :mention_you
+                %span.timestamp
+                  = item[:timestamp]
+            - elsif ('add' == item[:action] && 'discussion' == item[:target_type])
+              %li{:class => item[:unread]}
+                %img.avatar{:src => item[:avatar], :width => '30px', :height => '30px'}
+                %a{:href => item[:user_path]}
+                  = item[:user_name]
+                = t :discuss_your
+                %a{:href => item[:path]}
+                  = t :a_puzzle
+                %span.timestamp
+                  = item[:timestamp]
+            - elsif ('upvote' == item[:action] && 'discussion' == item[:target_type])
+              %li{:class => item[:unread]}
+                %img.avatar{:src => item[:avatar], :width => '30px', :height => '30px'}
+                %a{:href => item[:user_path]}
+                  = item[:user_name]
+                = t :upvote_your
+                %a{:href => item[:path]}
+                  = t :an_discussion
+                %span.timestamp
+                  = item[:timestamp]
+
+          -# update all TODO
+          - Notification.where(:contact_id => session[:user_id]).unread.update_all(:is_viewed => true)
+        %button.btn.load-more
+          = t :load_more

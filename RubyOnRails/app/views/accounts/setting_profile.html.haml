@@ -1,0 +1,17 @@
+.row.setting
+  .span8
+    = simple_form_for @user, :url => account_path(@user.id, :section => :profile), :html => { :class => 'form-horizontal' } do |f|
+      %fieldset
+        = render 'shared/settings_tabs'
+        - if flash[:notice].present?
+          .alert.alert-success
+            = flash[:notice]
+        = f.input :user_name, :label => "#{t :user_name}"
+        = f.input :brief, :label => "#{t :brief}", :as => :text, :hint => '你还可以输入 <span class="word-last">140</span> 字', :input_html => { :class => 'js-count-word', 'data-count' => '140' }
+        = f.input :douban_link, :label => "#{t :douban_link}", :placeholder => 'http://'
+        = f.input :weibo_name, :label => "#{t :weibo}", :error => false, :wrapper => :prepend do
+          = content_tag :span, "@", :class => "add-on"
+          = f.input_field :weibo_name, :class => 'span2'
+        -#= f.input :location_id, :label => "#{t :location}", :collection => Location.all.collect {|c| [c.name, c.id]}
+      .form-actions
+        = f.button :submit, :class => 'btn-large btn-primary', :value => "#{t :save}"

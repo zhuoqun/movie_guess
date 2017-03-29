@@ -1,0 +1,15 @@
+%script#notification_add_answer_tpl{:type => "text/html"}
+  :plain
+    <li class="{{ unread }}"> <img class="avatar" width="30px" height="30px" src="{{ avatar }}"> <a href="{{ user_path }}">{{ user_name }}</a> 回答了你的 <a href="{{ path }}">一条影谜</a> <span class="timestamp">{{ timestamp }}</span></li>
+%script#notification_add_comment_tpl{:type => "text/html"}
+  :plain
+    <li class="{{ unread }}"> <img class="avatar" width="30px" height="30px" src="{{ avatar }}"> <a href="{{ user_path }}">{{ user_name }}</a> 评论了你的 <a href="{{ path }}">一个回答</a> <span class="timestamp">{{ timestamp }}</span></li>
+%script#notification_upvote_answer_tpl{:type => "text/html"}
+  :plain
+    <li class="{{ unread }}"> <img class="avatar" width="30px" height="30px" src="{{ avatar }}"> <a href="{{ user_path }}">{{ user_name }}</a> 赞同了你的 <a href="{{ path }}">一个回答</a> <span class="timestamp">{{ timestamp }}</span></li>
+%script#notification_follow_tpl{:type => "text/html"}
+  :plain
+    <li class="{{ unread }}"> <img class="avatar" width="30px" height="30px" src="{{ avatar }}"> <a href="{{ user_path }}">{{ user_name }}</a> 关注了你 <span class="timestamp">{{ timestamp }}</span></li>
+%script#notification_mark_as_correct_tpl{:type => "text/html"}
+  :plain
+    <li class="{{ unread }}"> <img class="avatar" width="30px" height="30px" src="{{ avatar }}"> <a href="{{ user_path }}">{{ user_name }}</a> 把你的 <a href="{{ path }}">一个回答</a> 标记为正确答案 <span class="timestamp">{{ timestamp }}</span></li>

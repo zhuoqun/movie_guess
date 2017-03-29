@@ -1,0 +1,21 @@
+%script#discussion_tpl{:type => "text/html"}
+  :plain
+    <li id="discussion-{{ discussion_id }}" class="clearfix">
+      <div class="clearfix">
+        <a class="avatar" href="{{ user_url }}">
+          <img src="{{ user_avatar }}" width="30px" height="30px" />
+        </a>
+        <div class="discussion-body">
+          <a href="{{ user_url }}">{{ user_name }}</a>： {{{ content }}}
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="actions">
+          <a class="js-discussion-upvote {{ voted_up }}" href="/accounts/login" data-id="{{ discussion_id }}">赞 {{ upvotes_cnt }}</a>
+        </div>
+        <div class="timestamp">
+          <a href="/accounts/login" class="js-discussion-reply" data-id="{{ user_id }}" data-name="{{ user_name }}">回复</a>
+          <span>{{ timestamp }}</span>
+        </div>
+      </div>
+    </li>

@@ -1,0 +1,216 @@
+@import "common.less";
+@import "at.less";
+
+body {
+  background: #242525;
+}
+
+footer {
+  border-top: 1px solid #333;
+  color: #666;
+}
+
+#fastCarousel {
+  .span8 {
+    float: none;
+    margin: 0 auto;
+  }
+}
+
+.puzzle-detail {
+  .shadow-block;
+  .border-radius(3px);
+
+  background: #eee;
+
+  .puzzle-img {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 30px;
+
+    img {
+      max-width: 554px;
+    }
+  }
+
+  .puzzle-text {
+    padding: 15px;
+    background: #eee;
+
+    p {
+      font-size: 20px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+  }
+
+  .meta {
+    padding: 20px 30px;
+    color: #666;
+    font-size: 13px;
+
+    .actions {
+      margin-top: 20px;
+      font-size: 14px;
+
+      .left {
+        float: left;
+      }
+
+      .right {
+        float: right;
+      }
+
+      .favorite {
+        background: #ffb6c1;
+      }
+    }
+  }
+
+  .detail-section {
+    padding: 20px 30px;
+    margin: 0 -15px;
+    border-top: 1px solid #ddd;
+
+    h3 {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .add-answer {
+
+    .avatar {
+      float: left;
+      display: block;
+    }
+
+    .answer-input {
+      margin-left: 60px;
+
+      textarea {
+        display: block;
+        height: 40px;
+        width: 490px;
+        resize: none;
+      }
+
+      button {
+        float: right;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .no-login {
+    text-align: center;
+  }
+
+  .view-answer {
+    text-align: center;
+  }
+
+  .answers {
+    ul {
+      margin: 0;
+    }
+
+    li {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+
+      &.correct {
+        .answer-body {
+          background: #90EE90 image-url('correct.png') 240px 0 no-repeat;
+          padding: 5px 10px;
+        }
+      }
+
+      &:last-child {
+        border: none;
+        padding-bottom: 0;
+      }
+
+      .avatar {
+        float: left;
+      }
+
+      .answer-edit {
+        margin-left: 60px;
+
+        textarea {
+          display: block;
+          height: 40px;
+          width: 490px;
+          resize: none;
+        }
+
+        button {
+          float: right;
+          margin: 5px 0 0 10px;
+        }
+      }
+
+      .answer-body {
+        position: relative;
+        margin: 0 0 5px 60px;
+
+        .username {
+          color: #333;
+          font-weight: 700;
+        }
+        
+        p {
+          margin-top: 4px;
+        }
+
+        .answer-actions {
+          font-size: 12px;
+
+          .top {
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            a {
+              display: none;
+            }
+
+            .js-cancel-mark-as-correct {
+              margin: 10px 10px 0 0;
+            }
+          }
+
+          .voted {
+            color: #999;
+          }
+
+        }
+      }
+
+      .timestamp {
+        float: right;
+        color: #999;
+      }
+
+      .comments {
+        padding: 5px 0 5px 60px;
+
+        .comment-body {
+          margin-left: 35px;
+          font-size: 12px;
+          line-height: 21px;
+          color: #666;
+
+          textarea {
+            height: 20px;
+            width: 404px;
+            resize: none;
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,24 @@
+.row.signup
+  .span8
+    = render "signup_form"
+  .span4
+    .login
+      = t :has_account
+      = link_to (t :login), login_accounts_path
+    .social
+      %h4
+        = t :use_oauth
+      %ul.js-oauth-links.clearfix
+        %li
+          %a{:href => "/auth/douban"}
+            = image_tag "douban_login.png", {:alt => "#{t :use_oauth_douban}"}
+        %li
+          %a{:href => "/auth/weibo"}
+            = image_tag "weibo_login.png", {:alt => "#{t :use_oauth_weibo}"}
+        %li
+          %a{:href => "/auth/qq_connect"}
+            = image_tag "qq_login.png", {:alt => "#{t :use_oauth_qq}"}
+      -#
+        %li
+          %a{:href => "/auth/xiaonei"}
+            = image_tag "renren_login.png", {:alt => "#{t :use_oauth_renren}"}

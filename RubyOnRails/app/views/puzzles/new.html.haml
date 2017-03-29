@@ -1,0 +1,106 @@
+.row.create-puzzle
+  .span8
+    %h2
+      = t :create_new_puzzle
+    - if @puzzle.errors.messages.present?
+      .alert.alert-error
+        - @puzzle.errors.full_messages.uniq.each do |msg|
+          %p
+            = msg
+    .tabbable
+      %ul.nav.nav-tabs
+        %li.active
+          %a{"data-toggle" => "tab", :href => "#screenshot"}
+            = t :screenshot
+        %li
+          %a{"data-toggle" => "tab", :href => "#lines"}
+            = t :lines
+      .tab-content
+        #screenshot.tab-pane.active
+          .mode-select.clearfix
+            %a.left.upload{:href => "#"}
+              = t :upload_image
+            %a.right.url{:href => "#"}
+              = t :from_url
+          .create-form-img
+            .mode-switch.clearfix
+              %a.to-upload{:href => "#"}
+                = '>' + (t :upload_image)
+              %a.to-url{:href => "#"}
+                = '>' + (t :from_url)
+            -# For image upload
+            = simple_form_for @puzzle, :remote => true, :html => { :class => 'form-horizontal upload-form', :id => 'upload_form' } do |f|
+              = f.input :image, :as => :file, :required => true, :label => "#{t :upload_image}", :wrapper_html => { :class => 'from-upload'}
+              = f.hidden_field :user_id, :value => "#{current_user.id}"
+              = f.hidden_field :puzzle_type, :value => "image"
+              .form-actions
+                = f.button :submit, :id => 'upload_btn', :class => 'btn-primary', :disabled => true, :value => "#{t :upload}"
+            -# For puzzle create after image upload
+            = simple_form_for @puzzle, :html => { :class => 'form-horizontal js-enable-submit', :style => 'display:none', :id => 'create_form'} do |f|
+              .control-group
+                %label.control-label
+                  = t :screenshot
+                .controls#img_wrapper
+              = f.input :desc, :as => :text, :label => "#{t :desc}", :hint => '你还可以输入 <span class="word-last">200</span> 字', :input_html => { :class => 'js-count-word', 'data-count' => '200' }
+              .control-group
+                %label.control-label{:for => "tags"}
+                  = t :tag
+                .controls
+                  %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.tag_names[0]}"}
+                  %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.tag_names[1]}"}
+                  %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.tag_names[2]}"}
+                  %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.tag_names[3]}"}
+                  %span.help-block
+                    = t :tag_help
+              = f.hidden_field :puzzle_type, :value => "image"
+              .form-actions
+                = f.button :submit, :class => 'btn-primary js-submit', :disabled => true, :value => "#{t :create}"
+            = simple_form_for @puzzle, :html => { :class => 'form-horizontal crawl-form js-enable-submit', :id => 'crawl_form' } do |f|
+              .control-group.from-url
+                %label.control-label{:for => "from_url"}
+                  = t :input_image_url
+                .controls
+                  %input#from_url{:type => "text"}
+                  %span.help-inline
+                    %button.btn#crawl_btn{:disabled => true}
+                      = t :crawl
+              .control-group
+                %label.control-label
+                .controls
+                  = render 'shared/carousel_tpl'
+                  #crawl_box
+              = f.input :desc, :as => :text, :label => "#{t :desc}", :hint => '你还可以输入 <span class="word-last">200</span> 字', :input_html => { :class => 'js-count-word', 'data-count' => '200' }
+              .control-group
+                %label.control-label{:for => "tags"}
+                  = t :tag
+                .controls
+                  %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.tag_names[0]}"}
+                  %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.tag_names[1]}"}
+                  %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.tag_names[2]}"}
+                  %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.tag_names[3]}"}
+                  %span.help-block
+                    = t :tag_help
+              = f.hidden_field :user_id, :value => "#{current_user.id}"
+              = hidden_field_tag :crawl_img
+              = hidden_field_tag :image_from, :url
+              = f.hidden_field :puzzle_type, :value => "image"
+              .form-actions
+                = f.button :submit, :class => 'btn-primary js-submit', :disabled => true, :value => "#{t :upload}"
+        #lines.tab-pane
+          = simple_form_for @puzzle, :html => { :class => 'form-horizontal js-enable-submit' } do |f|
+            = f.input :lines, :as => :text, :required => true, :error => false, :label => "#{t :lines}", :hint => '你还可以输入 <span class="word-last">500</span> 字', :input_html => { :class => 'js-count-word', 'data-count' => '500' }
+            .control-group
+              %label.control-label{:for => "tags"}
+                %abbr{:title => "required"} *
+                = t :tag
+              .controls
+                %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.tag_names[0]}"}
+                %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.tag_names[1]}"}
+                %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.tag_names[2]}"}
+                %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.tag_names[3]}"}
+                %span.help-block
+                  = t :tag_help
+            = f.hidden_field :user_id, :value => "#{current_user.id}"
+            = f.hidden_field :puzzle_type, :value => "lines"
+            .form-actions
+              = f.button :submit, :class => 'btn-primary js-submit', :disabled => true, :value => "#{t :create}"

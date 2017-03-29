@@ -1,0 +1,17 @@
+.row.forgot-password
+  .span8
+    = form_tag forgot_passwords_path, :class => 'form-horizontal' do
+      %fieldset
+        %legend
+          = t :forgot_password
+        .info
+          = t :password_reset_info
+        - error = flash[:alert].blank? ? '' : 'error'
+        .control-group{ :class => "#{error}"}
+          = label_tag :email, (t :email), :class => 'control-label'
+          .controls
+            = text_field_tag :email, params[:email]
+            %span.help-inline
+              = flash[:alert]
+        .form-actions
+          = submit_tag (t :submit), { :class => 'commit btn btn-primary' }

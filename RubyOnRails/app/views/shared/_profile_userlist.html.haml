@@ -1,0 +1,65 @@
+.container
+  .row
+    .span12.userlist
+      %ul.clearfix.js-endless-scroll
+        - i = 0
+        - @users.each do |user|
+          - side = i%2 == 0 ? 'left' : 'right'
+          - i = i + 1
+          %li{:class => side}
+            .usercard
+              .avatar
+                %a{:href => "/#{user.path}", :title => "#{user.user_name}"}
+                  %img{:height => "48px", :src => "#{user.avatar_medium}", :width => "48px"}/
+              .info
+                %h4
+                  %a{:href => "/#{user.path}"}
+                    = user.user_name
+                .stats
+                  %a{:href => "#{user_follows_page(user.path)}"}
+                    = user.follow_cnt
+                    = t :follow
+                  %span •
+                  %a{:href => "#{user_followers_page(user.path)}"}
+                    = user.follower_cnt
+                    = t :follower
+                  %span •
+                  %a{:href => "#{user_puzzles_page(user.path)}"}
+                    = user.puzzles.saved.count
+                    = t :puzzle
+                  %span •
+                  %a{:href => "#{user_answered_page(user.path)}"}
+                    = user.answers.count
+                    = t :answer
+              .ctrl
+                .btn-group
+                  - if current_user
+                    - if current_user.id != user.id
+                      - if current_user.has_followed(user)
+                        %a.btn.btn-success.unfollow-btn{:href => '', 'data-id' => user.id}
+                          %i.icon-ok.icon-white
+                          = t :already_follow
+                        %a.btn.btn-primary.follow-btn{:href => login_accounts_path, 'data-id' => user.id, :style => 'display:none'}
+                          = t :follow
+                      - else
+                        %a.btn.btn-success.unfollow-btn{:href => '', 'data-id' => user.id, :style => 'display:none'}
+                          %i.icon-ok.icon-white
+                          = t :already_follow
+                        %a.btn.btn-primary.follow-btn{:href => login_accounts_path, 'data-id' => user.id}
+                          = t :follow
+                  - else
+                    %a.btn.btn-primary{:href => login_accounts_path}
+                      = t :follow
+                -# TODO: add block
+                  - if current_user && current_user.id != user.id
+                    .btn-group
+                      %button.btn.dropdown-toggle{"data-toggle" => "dropdown"}
+                        %i.icon-cog
+                        %span.caret
+                      %ul.dropdown-menu
+                        %li
+                          %a{:href => "#"}
+                            = t :block
+                        %li
+                          %a{:href => "#"}
+                            = t :report

@@ -1,0 +1,7 @@
+= remotipart_response do
+  - unless @puzzle.errors.any?
+    $('#upload_form').remove();
+    $('#img_wrapper').append("<img src='#{@puzzle.image_detail}' class='screenshot' >");
+    $('#img_wrapper').append("<input type='hidden' name='puzzle_id' value='#{@puzzle.id}'>");
+    $('#img_wrapper').append("<input type='hidden' name='image_from' value='upload'>");
+    $('#create_form').show();

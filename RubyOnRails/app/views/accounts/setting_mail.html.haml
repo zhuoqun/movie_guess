@@ -1,0 +1,30 @@
+.row.setting
+  .span8
+    %form.form-horizontal{:action => "", :method => "post"}
+      %fieldset
+        = render 'shared/settings_tabs'
+        %h3
+          = t :mail_instruction
+        .control-group
+          .controls
+            %label.checkbox
+              %input{:name => "follow", :type => "checkbox"}
+              = t :mail_follow
+        .control-group
+          .controls
+            %label.checkbox
+              %input{:name => "answer", :type => "checkbox"}
+              = t :mail_answer
+        .control-group
+          .controls
+            %label.checkbox
+              %input{:name => "comment", :type => "checkbox"}
+              = t :mail_comment
+        .control-group
+          .controls
+            %label.checkbox
+              %input{:name => "best_answer", :type => "checkbox"}
+              = t :mail_best
+        .form-actions
+          %button.btn.btn-large.btn-primary{:type => "submit"}
+            = t :save

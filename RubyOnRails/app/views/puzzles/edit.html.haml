@@ -1,0 +1,52 @@
+.row.edit-puzzle
+  - if @puzzle.puzzle_type == 'image'
+    .span8
+      = simple_form_for @puzzle, :url => puzzle_path(@puzzle.id), :html => { :class => 'form-horizontal js-enable-submit' } do |f|
+        %fieldset
+          %legend
+            = t :edit_puzzle
+          = f.input :desc, :as => :text, :label => "#{t :desc}", :hint => '你还可以输入 <span class="word-last">200</span> 字', :input_html => { :class => 'js-count-word', 'data-count' => '200' }
+          .control-group
+            %label.control-label{:for => "tags"}
+              = t :tag
+            .controls
+              %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.get_tag_names[0]}"}
+              %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.get_tag_names[1]}"}
+              %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.get_tag_names[2]}"}
+              %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.get_tag_names[3]}"}
+              %span.help-block
+                = t :tag_help
+          .control-group
+            .controls
+              %button.btn.btn-danger.del-btn{'data-id' => @puzzle.id}
+                = t :delete_puzzle
+          .form-actions
+            = f.button :submit, :class => 'btn-primary', :value => "#{t :save}"
+            = link_to "#{t :cancel}", "javascript:location.href='/puzzles/#{@puzzle.id}'", :class => 'btn'
+    .span4
+      .imgbox
+        = image_tag @puzzle.image_wall, { :width => '192px'}
+  - else
+    .span8
+      = simple_form_for @puzzle, :url => puzzle_path(@puzzle.id), :html => { :class => 'form-horizontal js-enable-submit' } do |f|
+        %fieldset
+          %legend
+            = t :edit_puzzle
+          = f.input :lines, :as => :text, :label => "#{t :lines}", :value => @puzzle.lines, :hint => '你还可以输入 <span class="word-last">500</span> 字', :input_html => { :class => 'js-count-word', 'data-count' => '500' }
+          .control-group
+            %label.control-label{:for => "tags"}
+              = t :tag
+            .controls
+              %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.get_tag_names[0]}"}
+              %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.get_tag_names[1]}"}
+              %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.get_tag_names[2]}"}
+              %input.input-small{:name => "puzzle[tag_names][]", :type => "text", :value => "#{@puzzle.get_tag_names[3]}"}
+              %span.help-block
+                = t :tag_help
+          .control-group
+            .controls
+              %button.btn.btn-danger.del-btn{'data-id' => @puzzle.id}
+                = t :delete_puzzle
+          .form-actions
+            = f.button :submit, :class => 'btn-primary', :value => "#{t :save}"
+            = link_to "#{t :cancel}", "javascript:location.href='/puzzles/#{@puzzle.id}'", :class => 'btn'

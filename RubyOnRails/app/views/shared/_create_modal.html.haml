@@ -1,0 +1,65 @@
+#create_modal.modal.create-modal{:style => "display:none"}
+  .modal-header
+    %button.close{"data-dismiss" => "modal"} ×
+    %h3 创建一条影谜
+  .modal-body
+    .tabbable
+      %ul.nav.nav-tabs
+        %li.active
+          %a{"data-toggle" => "tab", :href => "#screenshot"} 截图
+        %li
+          %a{"data-toggle" => "tab", :href => "#lines"} 台词
+      .tab-content
+        #screenshot.tab-pane.active
+          .mode-select.clearfix
+            %a.left.upload{:href => "#"} 上传图片
+            %a.right.url{:href => "#"} 从网址抓取
+          %form.create-form-img.form-horizontal
+            %fieldset
+              .mode-switch.clearfix
+                %a.to-upload{:href => "#"} &gt;上传图片
+                %a.to-url{:href => "#"} &gt;从网址抓取
+              .control-group.from-upload
+                %label.control-label{:for => "from_upload"} 上传图片
+                .controls
+                  %input#from_upload{:name => "from_upload", :type => "file"}/
+                  %span.help-inline
+                    %button.btn 上传
+              .control-group.from-url
+                %label.control-label{:for => "from_url"} 输入图片 URL
+                .controls
+                  %input#from_url{:name => "from_url", :type => "text"}/
+                  %span.help-inline
+                    %button.btn 抓取
+              .control-group
+                %label.control-label{:for => "tags"} 标签
+                .controls
+                  %input.input-small{:name => "tags", :type => "text"}/
+                  %input.input-small{:name => "tags", :type => "text"}/
+              .control-group
+                .controls
+                  %input.input-small{:name => "tags", :type => "text"}/
+                  %input.input-small{:name => "tags", :type => "text"}/
+              .form-actions
+                %button.btn.btn-primary{:disabled => "true", :type => "submit"} 创建
+                %button.btn{:type => "submit"} 取消
+        #lines.tab-pane
+          %form.form-horizontal
+            %fieldset
+              .control-group
+                %label.control-label 输入台词
+                .controls
+                  %textarea.lines{:name => "lines"}
+                  %span.help-block 您还可以输入 500 字
+              .control-group
+                %label.control-label{:for => "tags"} 标签
+                .controls
+                  %input.input-small{:name => "tags", :type => "text"}/
+                  %input.input-small{:name => "tags", :type => "text"}/
+              .control-group
+                .controls
+                  %input.input-small{:name => "tags", :type => "text"}/
+                  %input.input-small{:name => "tags", :type => "text"}/
+              .form-actions
+                %button.btn.btn-primary{:disabled => "true", :type => "submit"} 创建
+                %button.btn{:disabled => "true", :type => "submit"} 取消

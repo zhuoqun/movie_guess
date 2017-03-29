@@ -1,0 +1,14 @@
+%script#comment_tpl{:type => "text/html"}
+  :plain
+    <li id="comment-{{ comment_id }}" class="clearfix">
+      <a class="avatar" href="{{ user_url }}">
+        <img src="{{ user_avatar }}" width="30px" height="30px" />
+      </a>
+      <div class="comment-body">
+        <a href="{{ user_url }}">{{ user_name }}</a>： {{{ content }}}
+      </div>
+      <div class="timestamp">
+        <a href="#" class="js-reply" data-id="{{ user_id }}" data-name="{{ user_name }}">回复</a>
+        <span>{{ timestamp }}</span>
+      </div>
+    </li>

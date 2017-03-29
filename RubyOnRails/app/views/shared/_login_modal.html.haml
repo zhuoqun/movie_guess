@@ -1,0 +1,35 @@
+#login_modal.modal.login-modal{:style => "display:none"}
+  .modal-header
+    %button.close{"data-dismiss" => "modal"} ×
+    %h3 登录猜电影
+  .modal-body
+    .social
+      %ul
+        %li
+          %a{:href => ""}
+            = image_tag "douban_login.png", {:alt => "使用豆瓣账号登录"}
+        %li
+          %a{:href => "/auth/weibo/"}
+            = image_tag "weibo_login.png", {:alt => "使用微博账号登录"}
+        %li
+          %a{:href => ""}
+            = image_tag "qq_login.png", {:alt => "使用 QQ 账号登录"}
+        %li
+          %a{:href => ""}
+            = image_tag "renren_login.png", {:alt => "使用人人账号登录"}
+    .normal
+      %h4 使用注册邮箱登录
+      %form{:action => "/ajax/login", :method => "post"}
+        %p
+          %label{:for => "email"} 邮箱
+          %input#email{:name => "email", :type => "text"}/
+        %p
+          %label{:for => "password"} 密码
+          %input#password{:name => "password", :type => "password"}/
+        %p.submit.clearfix
+          %label.remember{:for => "remember"}
+            %input#remember{:name => "remember", :type => "checkbox"}>/
+            记住我
+          %button.btn.btn-primary{:type => "submit"} 登录
+        %p.forget
+          %a#forget{:href => "/forget_password/"} 忘记密码？

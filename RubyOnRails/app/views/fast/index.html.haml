@@ -1,0 +1,12 @@
+- if current_user
+  = hidden_field_tag(:current_user_id, current_user.id)
+  :javascript
+    current_user_avatar = '#{current_user.avatar_small}'
+- else
+  :javascript
+    current_user_avatar = ''
+#fastCarousel.carousel.slide
+  .carousel-inner
+  %a.carousel-control.left{"data-slide" => "prev", :href => "#fastCarousel", :style => "top:200px;"} &lsaquo;
+  %a.carousel-control.right{"data-slide" => "next", :href => "#fastCarousel", :style => "top:200px;"} &rsaquo;
+

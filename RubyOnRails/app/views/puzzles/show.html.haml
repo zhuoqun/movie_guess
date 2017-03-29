@@ -1,0 +1,304 @@
+.row.puzzle
+  .span4
+    .usercard
+      .clearfix
+        .avatar
+          %a{:href => "/#{@puzzle.user.path}", :title => "#{@puzzle.user.user_name}"}
+            = image_tag "#{@puzzle.user.avatar.url}", {:height  => '48px', :width => '48px'}
+        .info
+          %h2
+            = link_to @puzzle.user.user_name,  "/#{@puzzle.user.path}"
+          .stats
+            %a{:href => "#{user_puzzles_page(@puzzle.user.path)}"}
+              = @puzzle.user.puzzles.saved.count
+              = t :puzzle
+            %span •
+            %a{:href => "#{user_answered_page(@puzzle.user.path)}"}
+              = @puzzle.user.answers.count
+              = t :answer
+            %span •
+            %a{:href => "#{user_followers_page(@puzzle.user.path)}"}
+              = @puzzle.user.follower_cnt
+              = t :follower
+      - if current_user
+        - if current_user.id != @puzzle.user.id
+          - if current_user.has_followed(@puzzle.user)
+            %a.btn.btn-success.unfollow-btn{:href => '', 'data-id' => @puzzle.user.id}
+              %i.icon-ok.icon-white
+              = t :already_follow
+            %a.btn.btn-primary.follow-btn{:href => login_accounts_path, 'data-id' => @puzzle.user.id, :style => 'display:none'}
+              = t :follow
+          - else
+            %a.btn.btn-success.unfollow-btn{:href => '', 'data-id' => @puzzle.user.id, :style => 'display:none'}
+              %i.icon-ok.icon-white
+              = t :already_follow
+            %a.btn.btn-primary.follow-btn{:href => login_accounts_path, 'data-id' => @puzzle.user.id}
+              = t :follow
+      - else
+        %a.btn.btn-primary.long-btn{:href => login_accounts_path}
+          = t :follow
+    -#
+      .relate-puzzle
+        %h2 
+          = @puzzle.user.user_name
+          = (t :create) + (t :s)
+        .clearfix
+          %a{:href => "", :title => ""}
+            %img{:height => "60px", :src => "http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg", :width => "60px"}
+          %a{:href => ""}
+            %img{:height => "60px", :src => "http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg", :width => "60px"}
+          %a{:href => ""}
+            %img{:height => "60px", :src => "http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg", :width => "60px"}
+          %a{:href => ""}
+            %img{:height => "60px", :src => "http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg", :width => "60px"}
+          %a{:href => ""}
+            %img{:height => "60px", :src => "http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg", :width => "60px"}
+          %a{:href => ""}
+            %img{:height => "60px", :src => "http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg", :width => "60px"}
+          %a{:href => ""}
+            %img{:height => "60px", :src => "http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg", :width => "60px"}
+          %a{:href => ""}
+            %img{:height => "60px", :src => "http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg", :width => "60px"}
+    .puzzle-stat
+      %p
+        = t :create_time
+        %span
+          = format_time(@puzzle.created_at)
+      %p
+        = t :total_answers
+        %span
+          = @puzzle.answers.count
+      - if @puzzle.has_best_answer == true
+        %p.correct
+          = t :has_correct_answer
+      - else
+        %p
+          = t :no_correct_answer
+    = render "shared/discussion_tpl"
+    #discussions.puzzle-discuss
+      %h2
+        = t :discussion
+        - if @puzzle.discussions.count > 0
+          %span
+            = "(#{t :has_n_discussions, :n => @puzzle.discussions.count})"
+        - else
+          %span
+            = "(#{t :has_no_discussions})"
+      .loading
+        = image_tag "loading.gif"
+      %ul.discussions
+        - if current_user
+          %li.clearfix.discussion-input
+            %a.avatar
+              %img{:src => current_user.avatar_small, :width=>'30px', :height=>'30px'}
+            .discussion-body
+              %textarea.discussion-area.js-atwho-area
+                = t :discuss_placeholder
+              %button.btn.btn-primary{:disabled => true}
+                = t :add
+      - if @puzzle.discussions.count > 0
+        %button.btn.load-more
+          = t :load_more
+    -#
+      .sponsor-ads
+        Ads
+  .span8
+    .puzzle-detail{'data-id' => @puzzle.id}
+      - if @puzzle.puzzle_type == 'image'
+        %a.puzzle-img{:href => @puzzle.image.url}
+          = image_tag @puzzle.image_detail
+      - else
+        .puzzle-text
+          = raw(@puzzle.lines)
+      .meta
+        %p.desc
+          = @puzzle.desc
+        .tags
+          %span
+            = t :tag
+          - @puzzle.get_tag_names.each do |tag|
+            = link_to tag, "/tag/#{tag}"
+        .actions.clearfix
+          .left
+            -#
+              %a.btn.js-retweet{:href => ""}
+                %i.icon-retweet
+                = t :retweet
+            - if current_user
+              - if current_user.voted_for? @puzzle
+                %a.btn.favorite.js-favorite{:href => "#"}
+                  %i.icon-heart
+                  = t :favorite
+              - else
+                %a.btn.js-favorite{:href => "#"}
+                  %i.icon-heart
+                  = t :favorite
+            - else
+              %a.btn{:href => login_accounts_path}
+                %i.icon-heart
+                = t :favorite
+            - if current_user && current_user.id == @puzzle.user.id
+              %a.btn{:href => edit_puzzle_path(@puzzle.id)}
+                %i.icon-edit
+                = t :edit
+          .right
+            / JiaThis Button BEGIN
+            #ckepop
+              %span.jiathis_txt
+                = t :share_to
+              %a.jiathis_button_douban
+              %a.jiathis_button_tsina
+              %a.jiathis_button_tqq
+              %a.jiathis_button_renren
+              %a.jiathis_button_qzone
+              %a.jiathis_button_email
+            :javascript
+              var desc = '#{@puzzle.desc}'
+              if (desc == '') {
+                desc = "快来猜猜这是什么电影吧！"
+              }
+              var jiathis_config={
+                title: desc,
+              }
+            %script{:charset => "utf-8", :src => "http://v2.jiathis.com/code/jia.js", :type => "text/javascript"}
+            / JiaThis Button END
+      - if current_user
+        = hidden_field_tag(:current_user_id, current_user.id)
+        - if @my_answer.blank?
+          .detail-section.answers.my-answer{:style => 'display:none'}
+            %ul
+              %li.not-correct
+                %a.avatar{:href => "/#{current_user.path}"}
+                  = image_tag "#{current_user.avatar.url}", {:height  => '50px', :width => '50px'}
+                .answer-edit.clearfix{:style => 'display:none'}
+                  %textarea
+                  %button.btn.btn-primary.js-save
+                    = t :save
+                  %button.btn.js-cancel
+                    = t :cancel
+                .answer-body
+                  %a.username{:href => "/#{current_user.path}"}
+                    = current_user.user_name
+                  %p.content
+                  .answer-actions
+                    - if current_user && current_user.id == @puzzle.user.id
+                      .top
+                        %a.js-mark-as-correct{:href => "#"}
+                          = t :mark_as_correct
+                        %a.js-cancel-mark-as-correct{:href => "#"}
+                          = t :cancel_mark_as_correct
+                    .bot
+                      %span
+                        = (t :upvote) + "(0)"
+                      %span
+                        = (t :downvote) + "(0)"
+                      %a.js-comment{:href => "#"}
+                        = (t :comment) + "(0)"
+                      %a.js-edit{:href => "#"}
+                        = t :edit
+                      %span.timestamp
+                %ul.comments
+          .detail-section.add-answer
+            %a.avatar{:href => "/#{current_user.path}"}
+              = image_tag "#{current_user.avatar.url}", {:height  => '50px', :width => '50px'}
+            .answer-input.clearfix
+              %textarea.answer-area
+              %button.btn.btn-primary{:disabled => true}
+                = t :answer
+        - else
+          .detail-section.answers
+            %h3
+              = t :my_answer
+            %ul
+              - is_correct = @my_answer.is_best ? 'correct' : 'not-correct'
+              %li{:id => "answer-#{@my_answer.id}", :class => is_correct}
+                %a.avatar{:href => "/#{current_user.path}"}
+                  = image_tag "#{current_user.avatar.url}", {:height  => '50px', :width => '50px'}
+                .answer-edit.clearfix{:style => 'display:none'}
+                  %textarea
+                  %button.btn.btn-primary.js-save
+                    = t :save
+                  %button.btn.js-cancel
+                    = t :cancel
+                .answer-body
+                  %a.username{:href => "/#{current_user.path}"}
+                    = current_user.user_name
+                  %p
+                    = @my_answer.content
+                  .answer-actions
+                    - if current_user && current_user.id == @puzzle.user.id
+                      .top
+                        %a.js-mark-as-correct{:href => "#"}
+                          = t :mark_as_correct
+                        %a.js-cancel-mark-as-correct{:href => "#"}
+                          = t :cancel_mark_as_correct
+                    .bot
+                      %span
+                        = (t :upvote) + "(#{@my_answer.upvotes.size})"
+                      %span
+                        = (t :downvote) + "(#{@my_answer.downvotes.size})"
+                      %a.js-comment{:href => "#"}
+                        = (t :comment) + "(#{@my_answer.comments.count})"
+                      %a.js-edit{:href => "#"}
+                        = t :edit
+                      %span.timestamp
+                        %a{:href => puzzle_answer_path(@puzzle, @my_answer)}
+                          = format_time(@my_answer.created_at)
+                %ul.comments
+      - else
+        .detail-section.no-login
+          %a{:href => login_accounts_path}
+            = t :answer_after_login
+      - if @my_answer.blank?
+        - if @puzzle.answers.count > 0
+          .detail-section.view-answer
+            %a{:href => "#"}
+              = t :view_answer, :count => @puzzle.answers.count
+        - else
+          .detail-section.view-answer
+            = t :no_answer
+      - else
+        - if @puzzle.answers.count > 1
+          .detail-section.view-answer
+            %a{:href => "#"}
+              = t :view_other_answer, :count => @puzzle.answers.count - 1
+        - else
+          .detail-section.view-answer
+            = t :no_other_answer
+      .detail-section.answers.all-answers{:style => 'display:none'}
+        = render "shared/answer_tpl"
+        = render "shared/comment_tpl"
+        %h3
+          = t :all_answers
+        %ul
+      .detail-section.likes.clearfix
+        - if @puzzle.likes.size == 0
+          %h3 暂时还没有人喜欢
+        - else
+          %h3 
+            = t :favorite
+            (#{@puzzle.likes.size})
+          - @puzzle.likes.voters.each do |voter|
+            %a.avatar{:href => "/#{voter.path}", :title => "#{voter.user_name}"}
+              = image_tag "#{voter.avatar.url}", {:height  => '50px', :width => '50px'}
+      - if current_user
+        :javascript
+          current_user_avatar = '#{current_user.avatar_small}'
+      - else
+        :javascript
+          current_user_avatar = ''
+      -#
+        .detail-section.reposts.clearfix
+          %h3
+            = t :retweet
+            (50+)
+          %a.avatar{:href => "", :title => "user"}
+            %img{:height => "50px", :src => "http://huaban.com/img/default_buddy_icon.jpg", :width => "50px"}
+          %a.avatar{:href => "", :title => "user"}
+            %img{:height => "50px", :src => "http://huaban.com/img/default_buddy_icon.jpg", :width => "50px"}
+          %a.avatar{:href => "", :title => "user"}
+            %img{:height => "50px", :src => "http://huaban.com/img/default_buddy_icon.jpg", :width => "50px"}
+          %a.avatar{:href => "", :title => "user"}
+            %img{:height => "50px", :src => "http://huaban.com/img/default_buddy_icon.jpg", :width => "50px"}
+          %a.avatar{:href => "", :title => "user"}
+            %img{:height => "50px", :src => "http://huaban.com/img/default_buddy_icon.jpg", :width => "50px"}

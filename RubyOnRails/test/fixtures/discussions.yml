@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  puzzle_id: MyString
+  user_id: MyString
+  content: MyText
+  disable: false
+  extra1: MyString
+  extra2: MyString
+  extra3: MyString
+  extra4: MyString
+
+two:
+  puzzle_id: MyString
+  user_id: MyString
+  content: MyText
+  disable: false
+  extra1: MyString
+  extra2: MyString
+  extra3: MyString
+  extra4: MyString

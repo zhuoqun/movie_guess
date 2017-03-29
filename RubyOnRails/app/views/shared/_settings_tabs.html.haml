@@ -1,0 +1,5 @@
+%ul.nav.nav-tabs
+  - settings_menus.each do |tab|
+  - active = tab[:id] == @page_id ? 'active' : ''
+    %li{:class => "#{active}"}
+      = link_to tab[:name], tab[:url]

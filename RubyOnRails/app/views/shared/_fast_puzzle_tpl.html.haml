@@ -1,0 +1,285 @@
+%script#fast_puzzle_img_tpl{:type => "text/html"}
+  :plain
+    <div class="{{ active }} item">
+      <div class="row puzzle">
+        <div class="span8">
+          <div class="puzzle-detail" data-id = "{{ puzzle_id }}">
+            <a href="{{ img }}" class="puzzle-img">
+              <img src="{{ img }}" />
+            </a>
+            <div class="meta">
+              <p class="desc">{{ title }}</p>
+              <div class="tags">
+                <span>标签：</span>
+                {{#tags}}
+                <span><a href="/tag/{{ name }}">{{ name }}</a></span>
+                {{/tags}}
+              </div>
+              <div class="actions clearfix">
+                <div class="left">
+                  <a href="{{ puzzle_url }}" data-id="{{ puzzle_id }}" class="btn js-favorite {{ favorite }}"><i class="icon-heart"></i>喜欢</a>
+                  {{#editable}}
+                  <a class="btn" href="{{ edit_url }}"><i class="icon-edit"></i> 编辑 </a>
+                  {{/editable}}
+                </div>
+                <div class="right" data-url="{{ puzzle_url }}" data-title="{{ title }}">
+                  <!-- JiaThis Button BEGIN -->
+                  <div id="ckepop">
+                    <span class="jiathis_txt">分享到：</span>
+                    <a class="jiathis_button_douban"></a>
+                    <a class="jiathis_button_tsina"></a>
+                    <a class="jiathis_button_tqq"></a>
+                    <a class="jiathis_button_renren"></a>
+                    <a class="jiathis_button_qzone"></a>
+                    <a class="jiathis_button_email"></a>
+                  </div>
+                  <!-- JiaThis Button END -->
+                </div>
+              </div>
+            </div>
+            {{^user}}
+            {{^answered}}
+            <div class="detail-section no-login">
+              <a href="/accouts/login">登录后回答</a>
+            </div>
+            {{/answered}}
+            {{/user}}
+
+            {{#answered}}
+            <div class="detail-section answers">
+              <h3>我的答案</h3>
+              <ul>
+                <li id="answer-{{ answer_id }}" class="{{ is_correct }}">
+                  <a class="avatar" href="/{{ path }}">
+                    <img alt="{{ user_name }}" height="50px" src="{{ avatar }}" width="50px">
+                  </a>
+                  <div class="answer-edit clearfix" style="display:none">
+                    <textarea></textarea>
+                    <button class="btn btn-primary js-save">保存</button>
+                    <button class="btn js-cancel">取消</button>
+                  </div>
+                  <div class="answer-body">
+                    <a class="username" href="/{{ path }}"> {{ user_name }} </a>
+                    <p> {{ content }} </p>
+                    <div class="answer-actions">
+                      {{#is_my_puzzle}}
+                      <div class="top">
+                        <a class="js-mark-as-correct" href="#"> 标记为正确答案 </a>
+                        <a class="js-cancel-mark-as-correct" href="#"> 不是正确答案 </a>
+                      </div>
+                      {{/is_my_puzzle}}
+                      <div class="bot">
+                        <span>赞同({{ upvotes_cnt }})</span>
+                        <span>反对({{ downvotes_cnt }})</span>
+                        <a class="js-comment" href="#">评论({{ comment_cnt }}) </a>
+                        <a class="js-edit" href="#"> 编辑 </a>
+                        <span class="timestamp"><a href="{{ answer_url }}">{{ timestamp }}</a></span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="comments"></ul>
+                </li>
+              </ul>
+            </div>
+            {{/answered}}
+
+            {{#user}}
+            <div class="detail-section answers my-answer" style="display:none">
+              <ul>
+                <li class="not-correct">
+                  <a class="avatar" href="/{{ path }}">
+                    <img alt="{{ user_name }}" height="50px" src="{{ avatar }}" width="50px">
+                  </a>
+                  <div class="answer-edit clearfix" style="display:none">
+                    <textarea></textarea>
+                    <button class="btn btn-primary js-save">保存</button>
+                    <button class="btn js-cancel">取消</button>
+                  </div>
+                  <div class="answer-body">
+                    <a class="username" href="/{{ path }}">{{ user_name }}</a>
+                    <p class="content"></p>
+                    <div class="answer-actions">
+                      {{#is_my_puzzle}}
+                      <div class="top">
+                        <a class="js-mark-as-correct" href="#"> 标记为正确答案 </a>
+                        <a class="js-cancel-mark-as-correct" href="#"> 不是正确答案 </a>
+                      </div>
+                      {{/is_my_puzzle}}
+                      <div class="bot">
+                        <span>赞同(0)</span>
+                        <span>反对(0)</span>
+                        <a class="js-comment" href="">评论(0) </a>
+                        <a class="js-edit" href=""> 编辑 </a>
+                        <span class="timestamp"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="comments"></ul>
+                </li>
+              </ul>
+            </div>
+            <div class="detail-section add-answer">
+              <a class="avatar" href="/{{ path }}">
+                <img src="{{ avatar }}" width="50px" height="50px" />
+              </a>
+              <div class="answer-input clearfix">
+                <textarea class="answer-area"></textarea>
+                <button disabled=true class="btn btn-primary">回答</button>
+              </div>
+            </div>
+            {{/user}}
+
+            <div class="detail-section view-answer">
+              <a href="#">查看所有答案</a>
+            </div>
+            <div class="detail-section answers all-answers" style="display:none">
+              <h3>所有答案</h3>
+              <ul></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+%script#fast_puzzle_text_tpl{:type => "text/html"}
+  :plain
+    <div class="{{ active }} item">
+      <div class="row puzzle">
+        <div class="span8">
+          <div class="puzzle-detail" data-id = "{{ puzzle_id }}">
+            <div class="puzzle-text">
+            {{{ text }}}
+            </div>
+            <div class="meta">
+              <p class="desc">{{ title }}</p>
+              <div class="tags">
+                <span>标签：</span>
+                {{#tags}}
+                <span><a href="/tag/{{ name }}">{{ name }}</a></span>
+                {{/tags}}
+              </div>
+              <div class="actions clearfix">
+                <div class="left">
+                  <a href="{{ puzzle_url }}" data-id="{{ puzzle_id }}" class="btn js-favorite {{ favorite }}"><i class="icon-heart"></i>喜欢</a>
+                  {{#editable}}
+                  <a class="btn" href="{{ edit_url }}"><i class="icon-edit"></i> 编辑 </a>
+                  {{/editable}}
+                </div>
+                <div class="right" data-url="{{ puzzle_url }}" data-title="{{ title }}">
+                  <!-- JiaThis Button BEGIN -->
+                  <div id="ckepop">
+                    <span class="jiathis_txt">分享到：</span>
+                    <a class="jiathis_button_douban"></a>
+                    <a class="jiathis_button_tsina"></a>
+                    <a class="jiathis_button_tqq"></a>
+                    <a class="jiathis_button_renren"></a>
+                    <a class="jiathis_button_qzone"></a>
+                    <a class="jiathis_button_email"></a>
+                  </div>
+                  <!-- JiaThis Button END -->
+                </div>
+              </div>
+            </div>
+            {{^user}}
+            {{^answered}}
+            <div class="detail-section no-login">
+              <a href="/accouts/login">登录后回答</a>
+            </div>
+            {{/answered}}
+            {{/user}}
+
+            {{#answered}}
+            <div class="detail-section answers">
+              <h3>我的答案</h3>
+              <ul>
+                <li id="answer-{{ answer_id }}" class="{{ is_correct }}">
+                  <a class="avatar" href="/{{ path }}">
+                    <img alt="{{ user_name }}" height="50px" src="{{ avatar }}" width="50px">
+                  </a>
+                  <div class="answer-edit clearfix" style="display:none">
+                    <textarea></textarea>
+                    <button class="btn btn-primary js-save">保存</button>
+                    <button class="btn js-cancel">取消</button>
+                  </div>
+                  <div class="answer-body">
+                    <a class="username" href="/{{ path }}"> {{ user_name }} </a>
+                    <p> {{ content }} </p>
+                    <div class="answer-actions">
+                      {{#is_my_puzzle}}
+                      <div class="top">
+                        <a class="js-mark-as-correct" href="#"> 标记为正确答案 </a>
+                        <a class="js-cancel-mark-as-correct" href="#"> 不是正确答案 </a>
+                      </div>
+                      {{/is_my_puzzle}}
+                      <div class="bot">
+                        <span>赞同({{ upvotes_cnt }})</span>
+                        <span>反对({{ downvotes_cnt }})</span>
+                        <a class="js-comment" href="#">评论({{ comment_cnt }}) </a>
+                        <a class="js-edit" href="#"> 编辑 </a>
+                        <span class="timestamp"><a href="{{ answer_url }}">{{ timestamp }}</a></span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="comments"></ul>
+                </li>
+              </ul>
+            </div>
+            {{/answered}}
+
+            {{#user}}
+            <div class="detail-section answers my-answer" style="display:none">
+              <ul>
+                <li>
+                  <a class="avatar" href="/{{ path }}">
+                    <img alt="{{ user_name }}" height="50px" src="{{ avatar }}" width="50px">
+                  </a>
+                  <div class="answer-edit clearfix" style="display:none">
+                    <textarea></textarea>
+                    <button class="btn btn-primary js-save">保存</button>
+                    <button class="btn js-cancel">取消</button>
+                  </div>
+                  <div class="answer-body">
+                    <a class="username" href="/{{ path }}">{{ user_name }}</a>
+                    <p class="content"></p>
+                    <div class="answer-actions">
+                      {{#is_my_puzzle}}
+                      <div class="top">
+                        <a class="js-mark-as-correct" href="#"> 标记为正确答案 </a>
+                        <a class="js-cancel-mark-as-correct" href="#"> 不是正确答案 </a>
+                      </div>
+                      {{/is_my_puzzle}}
+                      <div class="bot">
+                        <span>赞同(0)</span>
+                        <span>反对(0)</span>
+                        <a class="js-comment" href="#">评论(0) </a>
+                        <a class="js-edit" href="#"> 编辑 </a>
+                        <span class="timestamp"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="comments"></ul>
+                </li>
+              </ul>
+            </div>
+            <div class="detail-section add-answer">
+              <a class="avatar" href="/{{ path }}">
+                <img src="{{ avatar }}" width="50px" height="50px" />
+              </a>
+              <div class="answer-input clearfix">
+                <textarea class="answer-area"></textarea>
+                <button disabled=true class="btn btn-primary">回答</button>
+              </div>
+            </div>
+            {{/user}}
+
+            <div class="detail-section view-answer">
+              <a href="#">查看所有答案</a>
+            </div>
+            <div class="detail-section answers all-answers" style="display:none">
+              <h3>所有答案</h3>
+              <ul></ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>

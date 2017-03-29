@@ -1,0 +1,64 @@
+.container.user
+  .row
+    .span8
+      .profile
+        .clearfix
+          .avatar
+            %a{:href => "/#{@user.path}"}
+              = image_tag "#{@user.avatar_large}", {:alt => "#{@user.user_name}", :width => '128px', :height => '128px'}
+          .info
+            %h2
+              = link_to @user.user_name,  "/#{@user.path}"
+            .meta
+              %p= @user.brief
+              %p
+                - if get_user_douban_link
+                  = link_to (image_tag "icon_douban.png"), get_user_douban_link, {:target => '_blank'}
+                - if get_user_weibo_link
+                  = link_to (image_tag "icon_weibo.png"), get_user_weibo_link, {:target => '_blank'}
+        .ctrl
+          .btn-group
+            - if current_user
+              - if current_user.id != @user.id
+                - if current_user.has_followed(@user)
+                  %a.btn.btn-success.unfollow-btn{:href => '#', 'data-id' => @user.id}
+                    %i.icon-ok.icon-white
+                    = t :already_follow
+                  %a.btn.btn-primary.follow-btn{:href => login_accounts_path, 'data-id' => @user.id, :style => 'display:none'}
+                    = t :follow
+                - else
+                  %a.btn.btn-success.unfollow-btn{:href => '#', 'data-id' => @user.id, :style => 'display:none'}
+                    %i.icon-ok.icon-white
+                    = t :already_follow
+                  %a.btn.btn-primary.follow-btn{:href => login_accounts_path, 'data-id' => @user.id}
+                    = t :follow
+              - else
+                %a.btn.btn-info{:href => settings_accounts_path}
+                  %i.icon-edit.icon-white
+                  = t :edit_profile
+            - else
+              %a.btn.btn-primary{:href => login_accounts_path}
+                = t :follow
+          -# TODO: add block
+            - if current_user && current_user.id != @user.id
+              .btn-group
+                %button.btn.dropdown-toggle{"data-toggle" => "dropdown"}
+                  %i.icon-cog
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => "#"}
+                      = t :block
+                  %li
+                    %a{:href => "#"}
+                      = t :report
+    .span4
+      .stats
+        %p
+          = t :correct_answer_cnt
+          %em
+            = @user.answers.correct.count
+        %p
+          = t :upvote_cnt
+          %em
+            = upvote_count(@user)

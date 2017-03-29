@@ -1,0 +1,29 @@
+.row.setting
+  .span8
+    - if @user.domain.blank? || @user.errors.messages.present?
+      = simple_form_for @user, :url => account_path(@user.id, :section => :domain), :html => { :class => 'form-horizontal' } do |f|
+        %fieldset
+          = render 'shared/settings_tabs'
+          .alert.alert-error
+            = t :domain_only_once
+          = f.input :domain, :label => "#{t :setting_domain}", :error => false, :wrapper => :prepend do
+            = content_tag :span, "http://caidianying.com/", :class => "add-on"
+            = f.input_field :domain, :class => 'span1'
+            = content_tag :span, @user.errors.messages[:domain].first, :class => "help-inline"
+            = content_tag :span, (t :domain_help), :class => "help-block"
+        .form-actions
+          = f.button :submit, :class => 'btn-large btn-primary', :value => "#{t :save}"
+    - else
+      %form.form-horizontal
+        %fieldset
+          = render 'shared/settings_tabs'
+          .alert.alert-success
+            = t :already_set_domain
+          .control-group
+            %label.control-label{:for => "domain"}
+              = t :my_domain
+            .controls
+              %span.domain
+                http://caidianying.com/
+                %strong
+                  = @user.path

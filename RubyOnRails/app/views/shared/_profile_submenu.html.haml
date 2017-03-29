@@ -1,0 +1,18 @@
+.container
+  .row
+    .span12
+      .menubar.clearfix
+        %ul.clearfix.pull-left
+          - left_submenus.each do |item|
+          - active = item[:id] == @page_id ? 'active' : ''
+            %li{:class => "#{active}"}
+              %a{:href => "#{item[:url]}"}
+                = item[:cnt]
+                = item[:name]
+        %ul.pull-right
+          - right_submenus.each do |item|
+          - active = item[:id] == @page_id ? 'active' : ''
+            %li{:class => "#{active}"}
+              %a{:href => "#{item[:url]}"}
+                = item[:cnt]
+                = item[:name]

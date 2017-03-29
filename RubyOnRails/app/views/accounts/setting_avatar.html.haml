@@ -1,0 +1,29 @@
+.row.setting
+  .span8
+    = simple_form_for @user, :url => account_path(@user.id, :section => :avatar), :multipart => true, :html => { :class => 'form-horizontal' } do |f|
+      %fieldset
+        = render 'shared/settings_tabs'
+        - if flash[:notice].present?
+          .alert.alert-success
+            = flash[:notice]
+      - if @wait_crop.nil?
+        .control-group
+          %label.control-label{:for => "current_avatar"}
+            = t :current_avatar
+          .controls
+            = image_tag "#{@user.avatar_large}?#{Time.now.to_i}"
+        = f.input :avatar, :as => :file, :label => "#{t :upload_avatar}", :hint => "#{t :avatar_help}"
+        .form-actions
+          = f.button :submit, :id => 'upload_btn', :class => 'btn-large btn-primary', :value => "#{t :upload}"
+      - else
+        .control-group
+          %label.control-label{:for => "current_avatar"}
+            = t :crop_avatar
+          .controls
+            = image_tag "#{@user.avatar.url}?#{Time.now.to_i}", :id => 'target'
+        = f.hidden_field :crop_x
+        = f.hidden_field :crop_y
+        = f.hidden_field :crop_w
+        = f.hidden_field :crop_h
+        .form-actions
+          = f.button :submit, :class => 'btn-large btn-primary', :value => "#{t :save}"

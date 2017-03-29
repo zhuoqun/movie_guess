@@ -1,0 +1,58 @@
+%script#puzzle_img_tpl{:type => "text/html"}
+  <div class="puzzle {{ has_best }}" data-type="image">
+  <div class="actions">
+  <div class="answer">
+  <a href="{{ puzzle_url }}" class="btn btn-large"><i class="icon-comment"></i>回答</a>
+  </div>
+  <div class="other">
+  <!--<a href="{{ puzzle_url }}" data-id="{{ puzzle_id }}" class="btn"><i class="icon-retweet"></i>转发</a>-->
+  <a href="{{ puzzle_url }}" data-id="{{ puzzle_id }}" class="btn btn-large js-favorite {{ favorite }}"><i class="icon-heart"></i>喜欢</a>
+  </div>
+  </div>
+  <a href="{{ puzzle_url }}" class="content type-img" title="{{ title }}">
+  <img src="{{ img }}"/>
+  </a>
+  <p class="tags">
+  <i class="icon-tags"></i>
+  {{#tags}}
+  <span><a href="/tag/{{ name }}">{{ name }}</a></span>
+  {{/tags}}
+  </p>
+  <div class="stats clearfix">
+  <span><a href="{{ puzzle_url }}">答案({{ answer_cnt }})</a></span>
+  <span><a href="{{ puzzle_url }}">喜欢({{ favorite_cnt }})</a></span>
+  </div>
+  <div class="author clearfix">
+  <a href="{{ author_url }}" title="{{ author_name }}" class="img"><img src="{{ author_avatar }}" alt="profile img" /></a>
+  <p><a href="{{ author_url }}"> {{ author_name }} </a> 创建于 <span class="create_time">{{ timestamp }}</span></p>
+  </div>
+  </div>
+%script#puzzle_text_tpl{:type => "text/html"}
+  <div class="puzzle {{ has_best }}" data-type="lines">
+  <div class="actions">
+  <div class="answer">
+  <a href="{{ puzzle_url }}" class="btn btn-large"><i class="icon-comment"></i>回答</a>
+  </div>
+  <div class="other">
+  <!--<a href="{{ puzzle_url }}" data-id="{{ puzzle_id }}" class="btn"><i class="icon-retweet"></i>转发</a>-->
+  <a href="{{ puzzle_url }}" data-id="{{ puzzle_id }}" class="btn btn-large js-favorite {{ favorite }}"><i class="icon-heart"></i>喜欢</a>
+  </div>
+  </div>
+  <a href="{{ puzzle_url }}" class="content type-text" title="{{ title }}">
+  {{{ text }}}
+  </a>
+  <p class="tags">
+  <i class="icon-tags"></i>
+  {{#tags}}
+  <span><a href="/tag/{{ name }}">{{ name }}</a></span>
+  {{/tags}}
+  </p>
+  <div class="stats clearfix">
+  <span><a href="{{ puzzle_url }}">答案({{ answer_cnt }})</a></span>
+  <span><a href="{{ puzzle_url }}">喜欢({{ favorite_cnt }})</a></span>
+  </div>
+  <div class="author clearfix">
+  <a href="{{ author_url }}" title="{{ author_name }}" class="img"><img src="{{ author_avatar }}" alt="profile img" /></a>
+  <p><a href="{{ author_url }}"> {{ author_name }} </a> 创建于 <span class="create_time">{{ timestamp }}</span></p>
+  </div>
+  </div>

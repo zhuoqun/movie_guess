@@ -1,0 +1,363 @@
+zh-CN:
+  site_name: '猜电影'
+  page_index: '首页'
+  page_screenshot: '截图'
+  page_lines: '台词'
+  page_fast: '快速浏览'
+  page_login: '登录'
+  page_signup: '注册'
+  page_create_puzzle: '创建新影谜'
+  page_edit_puzzle: '编辑影谜'
+  page_complete_info: '完善个人资料'
+  login: '登录'
+  signup: '注册'
+  logout: '退出'
+  notification: '通知'
+  no_notification: '你暂时还没有收到任何通知'
+  not_found: '对不起，你访问的页面实在没能找到 T_T'
+  puzzle: '影谜'
+  screenshot: '截图'
+  lines: '台词'
+  category: '分类'
+  create: '创建'
+  answer: '回答'
+  retweet: '转发'
+  favorite: '喜欢'
+  edit: '编辑'
+  back_to_top: '回到顶部'
+  has_account: '已经有账号了？'
+  has_no_account: '还没有账号？'
+  forgot_password: '忘记密码？'
+  use_oauth: '使用第三方账号登录'
+  use_oauth_douban: '使用豆瓣账号登录'
+  use_oauth_weibo: '使用微博账号登录'
+  use_oauth_qq: '使用 QQ 账号登录'
+  use_oauth_renren: '使用人人账号登录'
+  auth_failure: '授权失败，请重试。'
+  email: '邮箱'
+  gender: '性别'
+  female: '女'
+  male: '男'
+  secret: '保密'
+  password: '密码'
+  password_confirmation: '确认密码'
+  user_name: '昵称'
+  location: '所在地'
+  douban_link: '豆瓣主页'
+  weibo: '微博账号'
+  captcha: '验证码'
+  remember_me: '记住我'
+  save: '保存'
+  skip: '跳过'
+  cancel: '取消'
+  signup_instantly: '立即注册'
+  signup_success: '注册成功！'
+  login_error: '你输入的邮箱或密码不正确'
+  domain_reserved: '该网址已经被占用'
+  complete_info: '完善个人资料'
+  follow: '关注'
+  follower: '粉丝'
+  already_follow: '已关注'
+  money: '金钱：'
+  experience: '经验：'
+  title: '称号：'
+  title_master: '电影达人'
+  loading: '正在使劲儿加载…'
+  block: '添加到黑名单'
+  report: '举报'
+  s: ' 的'
+  must_login: '你还没有登录。请登录后继续刚才的操作'
+  setting: '设置'
+  setting_profile: '基本信息'
+  setting_password: '修改密码'
+  setting_avatar: '修改头像'
+  setting_domain: '个性网址'
+  setting_mail: '邮件设置'
+  current_avatar: '当前头像'
+  upload_avatar: '上传新头像'
+  avatar_help: '你可以上传JPG、JPEG、GIF、PNG或BMP文件'
+  crop_avatar: '裁剪头像'
+  already_set_domain: '你已经设置个性网址。'
+  my_domain: '我的网址'
+  domain_help: '5-16个字符，由字母开头，只能包含字母、数字和下划线。'
+  domain_only_once: '个性网址只能设置一次，并且不可更改。'
+  mail_instruction: '当有以下情况时，发邮件通知我'
+  correct_answer_cnt: '答对的问题：'
+  upvote_cnt: '获得的赞同：'
+  mail_follow: '有人关注了我'
+  mail_answer: '有人回答了我的条目'
+  mail_comment: '有人评论了我的回答'
+  mail_best: '我的答案被采用'
+  current_password: '当前密码'
+  new_password: '新密码'
+  confirm_new_password: '确认新密码'
+  update_success: '修改成功'
+  create_new_puzzle: '创建一条影谜'
+  upload_image: '上传图片'
+  desc: '简介'
+  from_url: '从网址抓取'
+  upload: '上传'
+  input_image_url: '图片所在页面的网址'
+  crawl: '抓取'
+  tag: '标签'
+  tag_label: '标签：'
+  tag_help: '至少添加一个标签'
+  related_puzzles: '相关影谜'
+  create_time: '创建时间：'
+  total_answers: '全部答案：'
+  no_correct_answer: '尚无正确答案'
+  has_correct_answer: '已有正确答案'
+  discussion: '讨论区'
+  has_n_discussions: '共有 %{n} 个讨论'
+  has_no_discussions: '暂时还没有讨论'
+  discuss_placeholder: '可以在这里讨论与影片有关的事情。请不要剧透，影响别人猜谜的乐趣。'
+  share_to: '分享到： '
+  answer_after_login: '登录后回答'
+  view_answer: '查看全部 %{count} 个答案'
+  view_all_answer: '查看全部答案'
+  view_other_answer: '查看另外 %{count} 个答案'
+  no_answer: '暂时没有答案，快来回答吧！'
+  no_other_answer: '暂时没有其它答案'
+  my_answer: '我的答案'
+  all_answers: '所有答案'
+  share_this_answer: '分享此答案'
+  upvote: '赞同'
+  downvote: '反对'
+  comment: '评论'
+  mark_as_correct: '标记为正确答案'
+  cancel_mark_as_correct: '不是正确答案'
+  edit_puzzle: '编辑影谜'
+  delete_puzzle: '删除影谜'
+  reset_password: '重新设置密码'
+  reset_password_wrong_email: '没有使用此邮箱的用户，请重新输入。'
+  password_reset_info: '提交您的注册邮箱后，我们将通过电子邮件发给您一个链接，点击此链接即可重新设置密码。'
+  reset_password_sent: '邮件已经发送。如果您没有收到此电子邮件，请检查垃圾邮件文件夹。'
+  reset_password_success: '密码设置成功！'
+  submit: '提交'
+  edit_profile: '编辑个人资料'
+  brief: '一句话介绍'
+  answer_your: '回答了你的'
+  comment_your: '评论了你的'
+  discuss_your: '讨论了你的'
+  upvote_your: '赞同了你的'
+  a_puzzle: '一条影谜'
+  an_answer: '一个回答'
+  in: '在'
+  an_comment: '一条评论'
+  an_discussion: '一条讨论'
+  follow_you: '关注了你'
+  mention_you: '中提到了你'
+  mark_your: '把你的'
+  load_more: '更多'
+  add: '添加'
+  date:
+    abbr_day_names:
+    - 日
+    - 一
+    - 二
+    - 三
+    - 四
+    - 五
+    - 六
+    abbr_month_names:
+    - 
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 星期日
+    - 星期一
+    - 星期二
+    - 星期三
+    - 星期四
+    - 星期五
+    - 星期六
+    formats:
+      default: ! '%Y-%m-%d'
+      long: ! '%Y年%b%d日'
+      short: ! '%b%d日'
+    month_names:
+    - 
+    - 一月
+    - 二月
+    - 三月
+    - 四月
+    - 五月
+    - 六月
+    - 七月
+    - 八月
+    - 九月
+    - 十月
+    - 十一月
+    - 十二月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 大约一小时
+        other: 大约 %{count} 小时
+      about_x_months:
+        one: 大约一个月
+        other: 大约 %{count} 个月
+      about_x_years:
+        one: 大约一年
+        other: 大约 %{count} 年
+      almost_x_years:
+        one: 接近一年
+        other: 接近 %{count} 年
+      half_a_minute: 半分钟
+      less_than_x_minutes:
+        one: 不到一分钟
+        other: 不到 %{count} 分钟
+      less_than_x_seconds:
+        one: 不到一秒
+        other: 不到 %{count} 秒
+      over_x_years:
+        one: 一年多
+        other: ! '%{count} 年多'
+      x_days:
+        one: 一天
+        other: ! '%{count} 天'
+      x_minutes:
+        one: 一分钟
+        other: ! '%{count} 分钟'
+      x_months:
+        one: 一个月
+        other: ! '%{count} 个月'
+      x_seconds:
+        one: 一秒
+        other: ! '%{count} 秒'
+    prompts:
+      day: 日
+      hour: 时
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: 必须是可被接受的
+      blank: 不能为空字符
+      confirmation: 与确认值不匹配
+      pwd_confirmation: 两次输入的密码不一致
+      invalid_email: 不是有效的邮箱地址
+      invalid_domain: 格式不正确
+      invalid_current_password: 密码不正确
+      empty: 不能留空
+      equal_to: 必须等于 %{count}
+      even: 必须为双数
+      exclusion: 是保留关键字
+      greater_than: 必须大于 %{count}
+      greater_than_or_equal_to: 必须大于或等于 %{count}
+      inclusion: 不包含于列表中
+      invalid: 是无效的
+      less_than: 必须小于 %{count}
+      less_than_or_equal_to: 必须小于或等于 %{count}
+      not_a_number: 不是数字
+      not_an_integer: 必须是整数
+      odd: 必须为单数
+      record_invalid: ! '验证失败: %{errors}'
+      taken: 已经被使用
+      too_long: 过长（最长为 %{count} 个字符）
+      too_short: 过短（最短为 %{count} 个字符）
+      wrong_length: 长度非法（必须为 %{count} 个字符）
+      extension_white_list_error: 文件格式不对
+      size_too_big: 文件大小不得超过 %{file_size})
+    template:
+      body: 如下字段出现错误：
+      header:
+        one: 有 1 个错误发生导致「%{model}」无法被保存。
+        other: 有 %{count} 个错误发生导致「%{model}」无法被保存。
+  helpers:
+    select:
+      prompt: 请选择
+    submit:
+      create: 新增%{model}
+      submit: 储存%{model}
+      update: 更新%{model}
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u %n'
+        precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: CN¥
+    format:
+      delimiter: ! ','
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: 十亿
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', 和 '
+      two_words_connector: ! ' 和 '
+      words_connector: ! ', '
+  time:
+    am: 上午
+    formats:
+      default: ! '%Y年%b%d日 %A %H:%M:%S %Z'
+      long: ! '%Y年%b%d日 %H:%M'
+      short: ! '%b%d日 %H:%M'
+    pm: 下午
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    attributes:
+      puzzle:
+        lines: '台词'
+        image: '图片'
+        image_or_lines: '图片 或 台词'
+        tag_names: '标签'
+        desc: '简介'
+    errors:
+      <<: *errors
