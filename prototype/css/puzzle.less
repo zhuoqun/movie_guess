@@ -1,0 +1,255 @@
+@import "common.less";
+
+.puzzle {
+  .usercard {
+    .shadow-block;
+    padding-bottom: 15px;
+
+    .avatar {
+      float: left;
+    }
+
+    .info {
+      margin-left: 58px;
+
+      h2 {
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      .stats {
+        font-size: 12px;
+        margin-top: 4px;
+        color: #666;
+
+        a {
+          color: #666;
+        }
+      }
+    }
+
+    .follow-btn {
+      width: 100%;
+      margin-top: 15px;
+    }
+  }
+}
+
+.relate-puzzle {
+  .shadow-block;
+  padding-bottom: 15px;
+
+  h2 {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 8px;
+  }
+
+  a {
+    display: block;
+    float: left;
+    margin: 0 7px 4px 0;
+  }
+}
+
+.sponsor-ads {
+  .shadow-block;
+}
+
+.puzzle-detail {
+  .shadow-block;
+
+  .puzzle-img {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 30px;
+
+    img {
+      max-width: 554px;
+    }
+  }
+
+  .meta {
+    padding: 20px 30px;
+    color: #666;
+    font-size: 13px;
+
+    .actions {
+      margin-top: 20px;
+      font-size: 14px;
+
+      .left {
+        float: left;
+      }
+
+      .right {
+        float: right;
+      }
+    }
+  }
+
+  .detail-section {
+    padding: 20px 30px;
+    margin: 0 -15px;
+    border-top: 1px solid #ddd;
+
+    h3 {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .add-answer {
+
+    .avatar {
+      float: left;
+      display: block;
+    }
+
+    .answer-input {
+      margin-left: 60px;
+
+      textarea {
+        display: block;
+        height: 40px;
+        width: 490px;
+        resize: none;
+      }
+
+      button {
+        float: right;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .no-login {
+    text-align: center;
+  }
+
+  .view-answer {
+    text-align: center;
+  }
+
+  .answers {
+    ul {
+      margin: 0;
+    }
+
+    li {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+
+      &:last-child {
+        border: none;
+        padding-bottom: 0;
+      }
+
+      .avatar {
+        float: left;
+      }
+
+      .answer-body {
+        position: relative;
+        margin: 0 0 5px 60px;
+
+        .username {
+          color: #333;
+          font-weight: 700;
+        }
+        
+        p {
+          margin-top: 4px;
+        }
+
+        .answer-actions {
+          font-size: 12px;
+
+          .top {
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+
+        }
+      }
+
+      .comments {
+        padding: 5px 0 5px 60px;
+
+        .comment-body {
+          margin-left: 35px;
+          font-size: 12px;
+          line-height: 21px;
+          color: #666;
+
+          textarea {
+            height: 20px;
+            width: 404px;
+            resize: none;
+          }
+        }
+      }
+    }
+  }
+
+  .likes {
+
+    padding: 10px 30px;
+
+    .avatar {
+      float: left;
+      margin-right: 6px;
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  .reposts {
+    .likes;
+  }
+}
+
+/*-------- edit puzzle page ----------*/
+
+.edit-puzzle {
+  .imgbox {
+    margin-top: 38px;
+    text-align: center;
+  }
+
+  #desc {
+    height: 150px;
+    width: 87.5%;
+    resize: none;
+  }
+}
+
+/*-------- create puzzle page ----------*/
+
+.create-puzzle {
+  .create-modal;
+
+  h2 {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 19.5px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+  }
+
+  #lines {
+    height: 150px;
+    width: 94.5%;
+    resize: none;
+  }
+}
+

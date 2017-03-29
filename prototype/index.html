@@ -1,0 +1,289 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+  <header>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container auto-adjust">
+          <a class="brand" href="">猜电影</a>
+          <ul class="nav">
+            <li><a href="" target="_blank">首页</a></li>
+            <li><a href="" target="_blank">截图</a></li>
+            <li class="active"><a href="" target="_blank">台词</a></li>
+            <li><a href="" target="_blank">快速浏览</a></li>
+          </ul>
+          <form class="navbar-search pull-left">
+            <input class="search-query" type="text" />
+          </form>
+          <ul class="nav">
+            <li>
+              <a id="create_btn" data-toggle="modal" data-target="#create_modal" href="/create">创建</a>
+            </li>
+          </ul>
+          <ul class="nav pull-right">
+            <li>
+              <a id="login_btn" data-toggle="modal" data-target="#login_modal" href="/account/login">zhuoqun</a>
+            </li>
+            <li>
+              <a id="login_btn" data-toggle="modal" data-target="#login_modal" href="/account/login">登录</a>
+            </li>
+            <li>
+              <a href="/account/signin">注册</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- #navbar -->
+
+  </header>
+
+  <!-- create modal -->
+  <div class="modal create-modal" id="create_modal" style="display:none">
+    <div class="modal-header">
+      <button class="close" data-dismiss="modal">×</button>
+      <h3>创建一条影谜</h3>
+    </div>
+    <div class="modal-body">
+
+      <div class="tabbable">
+        <ul class="nav nav-tabs">
+          <li class="active">
+          <a href="#screenshot" data-toggle="tab" href="#">截图</a>
+          </li>
+          <li><a href="#lines" data-toggle="tab" href="#">台词</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="screenshot">
+
+            <div class="mode-select clearfix">
+              <a class="left upload" href="">上传图片</a>
+              <a class="right url" href="">从网址抓取</a>
+            </div>
+
+            <form class="create-form-img form-horizontal">
+              <fieldset>
+                <div class="mode-switch clearfix">
+                  <a class="to-upload" href="">&gt;上传图片</a>
+                  <a class="to-url" href="">&gt;从网址抓取</a>
+                </div>
+                <div class="control-group from-upload">
+                  <label class="control-label" for="from_upload">上传图片</label>
+                  <div class="controls">
+                    <input type="file" id="from_upload" name="from_upload" />
+                    <span class="help-inline"><button class="btn">上传</button></span>
+                  </div>
+                </div>
+                <div class="control-group from-url">
+                  <label class="control-label" for="from_url">输入图片 URL</label>
+                  <div class="controls">
+                    <input type="text" id="from_url" name="from_url" />
+                    <span class="help-inline"><button class="btn">抓取</button></span>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="tags">标签</label>
+                  <div class="controls">
+                    <input type="text" class="input-small" name="tags" />
+                    <input type="text" class="input-small" name="tags" />
+                  </div>
+                </div>
+                <div class="control-group">
+                  <div class="controls">
+                    <input type="text" class="input-small" name="tags" />
+                    <input type="text" class="input-small" name="tags" />
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button class="btn btn-primary" disabled="true" type="submit">创建</button>
+                  <button class="btn" type="submit">取消</button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div class="tab-pane" id="lines">
+            <form class="form-horizontal">
+              <fieldset>
+                <div class="control-group">
+                  <label class="control-label">输入台词</label>
+                  <div class="controls">
+                    <textarea name="lines" class="lines"></textarea>
+                    <span class="help-block">您还可以输入 500 字</span>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="tags">标签</label>
+                  <div class="controls">
+                    <input type="text" class="input-small" name="tags" />
+                    <input type="text" class="input-small" name="tags" />
+                  </div>
+                </div>
+                <div class="control-group">
+                  <div class="controls">
+                    <input type="text" class="input-small" name="tags" />
+                    <input type="text" class="input-small" name="tags" />
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button class="btn btn-primary" disabled="true" type="submit">创建</button>
+                  <button class="btn" type="submit">取消</button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- login modal -->
+  <div class="modal login-modal" id="login_modal" style="display:none">
+    <div class="modal-header">
+      <button class="close" data-dismiss="modal">×</button>
+      <h3>登录猜电影</h3>
+    </div>
+    <div class="modal-body">
+      <div class="social">
+        <ul>
+          <li><a href=""><img src="img/douban_login.png" alt="使用豆瓣账号登录" /></a></li>
+          <li><a href=""><img src="img/weibo_login.png" alt="使用微博账号登录" /></a></li>
+          <li><a href=""><img src="img/qq_login.png" alt="使用 QQ 账号登录" /></a></li>
+          <li><a href=""><img src="img/renren_login.png" alt="使用人人账号登录" /></a></li>
+        </ul>
+      </div>
+      <div class="normal">
+        <h4>使用注册邮箱登录</h4>
+        <form action="" method="post">
+          <p>
+          <label for="email">邮箱</label>
+          <input type="text" id="email" name="email" />
+          </p>
+          <p>
+          <label for="password">密码</label>
+          <input type="password" id="password" name="password" />
+          </p>
+          <p class="submit clearfix">
+          <label class="remember" for="remember"><input id="remember" name="remember" type="checkbox" />记住我</label>
+          <button type="submit" class="btn btn-primary">登录</button>
+          </p>
+          <p class="forget">
+            <a id="forget" href="">忘记密码？</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div> 
+
+  <!-- template -->
+  <script id="puzzle_text_tpl" type="text/html">
+    <div class="puzzle" data-id="{{ id }}" data-type="lines">
+      <div class="actions">
+        <div class="answer">
+          <a href="" class="btn"><i class="icon-comment"></i>回答</a>
+        </div>
+        <div class="other">
+          <a href="" class="btn"><i class="icon-retweet"></i>转发</a>
+          <a href="" class="btn"><i class="icon-heart"></i>喜欢</a>
+        </div>
+      </div>
+      <a href="/puzzle/" class="content type-text" title="{{ title }}">
+        {{{ text }}}
+      </a>
+      <p class="tags">
+      <i class="icon-tags"></i>
+      <span><a href="">周星驰</a></span>
+      <span><a href="">喜剧</a></span>
+      <span><a href="">无厘头</a></span>
+      <span><a href="">科幻</a></span>
+      </p>
+      <p class="stats">
+      <span class="fav_cnt"><a href="/">答案(20)</a></span>
+      <span class="fav_cnt"><a href="">喜欢(20)</a></span>
+      <span class="fav_cnt"><a href="">转发(20)</a></span>
+      </p>
+      <div class="author clearfix">
+        <a href="" title="" class="img"><img src="https://s-media-cache-ak0.pinimg.com/avatars/zhuoqun-1429802185_280.jpg" alt="profile img" /></a>
+        <p><a href="">zhuoqun</a> 创建于 <span class="create_time">2012-05-01 11:11:00</span></p>
+      </div>
+    </div>
+  </script>
+  <script id="puzzle_img_tpl" type="text/html">
+    <div class="puzzle {{ has_best }}" data-id="{{ id }}" data-type="lines">
+      <div class="actions">
+        <div class="answer">
+          <a href="" class="btn"><i class="icon-comment"></i>回答</a>
+        </div>
+        <div class="other">
+          <a href="" class="btn"><i class="icon-retweet"></i>转发</a>
+          <a href="" class="btn"><i class="icon-heart"></i>喜欢</a>
+        </div>
+      </div>
+      <a href="/puzzle/" class="content type-img" title="{{ title }}">
+        <img src="{{ img }}" style="height: {{ height }}"/>
+      </a>
+      <p class="tags">
+      <i class="icon-tags"></i>
+      <span><a href="">周星驰</a></span>
+      <span><a href="">喜剧</a></span>
+      <span><a href="">无厘头</a></span>
+      <span><a href="">科幻</a></span>
+      </p>
+      <p class="stats">
+      <span class="fav_cnt"><a href="/">答案(20)</a></span>
+      <span class="fav_cnt"><a href="">喜欢(20)</a></span>
+      <span class="fav_cnt"><a href="">转发(20)</a></span>
+      </p>
+      <div class="author clearfix">
+        <a href="" title="" class="img"><img src="https://s-media-cache-ak0.pinimg.com/avatars/zhuoqun-1429802185_280.jpg" alt="profile img" /></a>
+        <p><a href="">zhuoqun</a> 创建于 <span class="create_time">2012-05-01 11:11:00</span></p>
+      </div>
+    </div>
+  </script>
+  <script id="repost_tpl" type="text/html">
+  </script>
+  <script id="answer_tpl" type="text/html">
+  </script>
+  <script id="like_tpl" type="text/html">
+  </script>
+
+  <div id="wrapper" role="main">
+
+    <div class="sub-nav auto-adjust">
+      <h2>标签：<span>周星驰</span></h2>
+    </div>
+
+    <div class="waterfall-wrapper">
+      <div class="waterfall">
+      </div>
+
+      <div id="loading">
+        <img src="img/loading.gif" />
+        <span>正在使劲儿加载…</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/libs/jquery-1.7.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/create_puzzle.js"></script>
+  <script src="js/bootstrap-modal.js"></script>
+  <script src="js/bootstrap-tab.js"></script>
+</body>
+</html>

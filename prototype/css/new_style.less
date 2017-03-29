@@ -1,0 +1,104 @@
+@import "common.less";
+
+.puzzle {
+  .shadow-block;
+  font-size: 12px;
+
+  .actions {
+    display: none;
+    z-index: 4;
+    position: relative;
+    margin: 0 -15px;
+
+    .other {
+      position: absolute;
+      left: 5px;
+      top: 20px;
+    }
+
+    .answer {
+      position: absolute;
+      right: 5px;
+      top: 20px;
+
+    }
+  }
+
+  .type-text {
+    display: block;
+    color: #333;
+    padding: 5px;
+    background: #eee;
+    .border-radius(3px);
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  .type-img {
+    display: block;
+    max-height: 300px;
+    overflow: hidden;
+    text-align: center;
+
+    img {
+      max-width: 430px;
+    }
+  }
+
+  .tags {
+    margin: 10px 0 5px;
+    a {
+    }
+  }
+
+  .stats {
+    margin: 10px 0;
+    color: #999;
+
+    span {
+      float: left;
+
+      a {
+        color: #999;
+      }
+
+      &:last-child {
+        float: right;
+      }
+    }
+  }
+
+  .author {
+    background: #eee;
+    margin: 0 -15px;
+    padding: 10px 15px;
+    .box-shadow(0 1px 0 0 #fff inset);
+
+    a {
+      color: #666;
+      font-weight: 700;
+    }
+
+    p {
+      margin-top: 5px;
+    }
+
+    .img {
+      width: 30px;
+      margin-right: 6px;
+      float: left;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

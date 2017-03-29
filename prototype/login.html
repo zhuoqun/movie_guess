@@ -1,0 +1,115 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/account.css">
+
+  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+  <header>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="">猜电影</a>
+          <ul class="nav">
+            <li><a href="" target="_blank">首页</a></li>
+            <li><a href="" target="_blank">截图</a></li>
+            <li class="active"><a href="" target="_blank">台词</a></li>
+            <li><a href="" target="_blank">随便试试</a></li>
+          </ul>
+          <form class="navbar-search pull-left">
+            <input class="search-query" type="text" />
+          </form>
+          <ul class="nav pull-right">
+            <li>
+              <a id="login_btn" data-toggle="modal" data-target="#login_modal" href="/account/login">登录</a>
+            </li>
+            <li>
+              <a href="/account/signin">注册</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- #navbar -->
+
+  </header>
+
+  <div id="wrapper" role="main" class="container">
+
+    <div class="row info">
+      <div class="span12">
+        <div class="alert alert-success">
+          注册成功！你将收到一封激活邮件，请注意查收。
+        </div>
+      </div>
+    </div>
+
+    <div class="row login">
+      <div class="span8">
+        <form action="" method="post" class="form-horizontal">
+          <fieldset>
+            <legend>登录</legend>
+            <div class="control-group">
+              <label class="control-label" for="email">邮箱</label>
+              <div class="controls">
+                <input type="text" id="email" name="email" />
+                <span class="help-inline">请填写注册邮箱</span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="password">密码</label>
+              <div class="controls">
+                <input type="password" id="password" name="password" />
+                <span class="help-inline"><a href="">忘记密码？</a></span>
+              </div>
+            </div>
+            <div class="submit clearfix">
+              <label><input name="remember" type="checkbox" />记住我</label>
+              <button type="submit" class="btn btn-primary">登录</button>
+            </div>
+          </fieldset>
+        </form>
+
+        <div class="social">
+          <h3>使用第三方账号登录</h3>
+          <ul class="clearfix">
+            <li><a href=""><img src="img/douban_login.png" alt="使用豆瓣账号登录" /></a></li>
+            <li><a href=""><img src="img/weibo_login.png" alt="使用微博账号登录" /></a></li>
+            <li><a href=""><img src="img/qq_login.png" alt="使用 QQ 账号登录" /></a></li>
+            <li><a href=""><img src="img/renren_login.png" alt="使用人人账号登录" /></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="span4">
+        <div class="signup">
+          还没有账号？<a href="">立即注册</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="container">
+  <div class="row">
+    <div class="span12">
+      &copy; 2012 猜电影
+    </div>
+  </div>
+  </footer>
+
+  <script src="js/libs/jquery-1.7.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+</body>
+</html>

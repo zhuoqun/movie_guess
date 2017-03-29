@@ -1,0 +1,308 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/new_style.css">
+
+  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+  <header>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="">猜电影</a>
+          <ul class="nav">
+            <li><a href="" target="_blank">首页</a></li>
+            <li><a href="" target="_blank">截图</a></li>
+            <li class="active"><a href="" target="_blank">台词</a></li>
+            <li><a href="" target="_blank">快速浏览</a></li>
+          </ul>
+          <form class="navbar-search pull-left">
+            <input class="search-query" type="text" />
+          </form>
+          <ul class="nav">
+            <li>
+              <a id="create_btn" data-toggle="modal" data-target="#create_modal" href="/create">创建</a>
+            </li>
+          </ul>
+          <ul class="nav pull-right">
+            <li>
+              <a id="login_btn" data-toggle="modal" data-target="#login_modal" href="/account/login">zhuoqun</a>
+            </li>
+            <li>
+              <a id="login_btn" data-toggle="modal" data-target="#login_modal" href="/account/login">登录</a>
+            </li>
+            <li>
+              <a href="/account/signin">注册</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- #navbar -->
+
+  </header>
+
+  <!-- template -->
+  <script id="puzzle_text_tpl" type="text/html">
+    <div class="puzzle" data-id="{{ id }}" data-type="lines">
+      <div class="actions">
+        <div class="answer">
+          <a href="" class="btn"><i class="icon-comment"></i>回答</a>
+        </div>
+        <div class="other">
+          <a href="" class="btn"><i class="icon-heart"></i>喜欢</a>
+        </div>
+      </div>
+      <a href="/puzzle/" class="content type-text" title="{{ title }}">
+        {{{ text }}}
+      </a>
+      <p class="tags">
+      <i class="icon-tags"></i>
+      <span><a href="">周星驰</a></span>
+      <span><a href="">喜剧</a></span>
+      <span><a href="">无厘头</a></span>
+      <span><a href="">科幻</a></span>
+      </p>
+      <div class="stats clearfix">
+      <span class="fav_cnt"><a href="/">答案(20)</a></span>
+      <span class="fav_cnt"><a href="">喜欢(20)</a></span>
+      </div>
+      <div class="author clearfix">
+        <a href="" title="" class="img"><img src="http://media-cache0.pinterest.com/avatars/cfelizbme-10.jpg" alt="profile img" /></a>
+        <p><a href="">zhuoqun</a> 创建于 <span class="create_time">2012-05-01 11:11:00</span></p>
+      </div>
+    </div>
+  </script>
+  <script id="puzzle_img_tpl" type="text/html">
+    <div class="puzzle {{ has_best }}" data-id="{{ id }}" data-type="lines">
+      <div class="actions">
+        <div class="answer">
+          <a href="" class="btn"><i class="icon-comment"></i>回答</a>
+        </div>
+        <div class="other">
+          <a href="" class="btn"><i class="icon-heart"></i>喜欢</a>
+        </div>
+      </div>
+      <a href="/puzzle/" class="content type-img" title="{{ title }}">
+        <img src="{{ img }}" />
+      </a>
+      <p class="tags">
+      <i class="icon-tags"></i>
+      <span><a href="">周星驰</a></span>
+      <span><a href="">喜剧</a></span>
+      <span><a href="">无厘头</a></span>
+      <span><a href="">科幻</a></span>
+      </p>
+      <div class="stats clearfix">
+      <span class="fav_cnt"><a href="/">答案(20)</a></span>
+      <span class="fav_cnt"><a href="">喜欢(20)</a></span>
+      </div>
+      <div class="author clearfix">
+        <a href="" title="" class="img"><img src="http://media-cache0.pinterest.com/avatars/cfelizbme-10.jpg" alt="profile img" /></a>
+        <p><a href="">zhuoqun</a> 创建于 <span class="create_time">2012-05-01 11:11:00</span></p>
+      </div>
+    </div>
+  </script>
+  <div id="wrapper" role="main">
+
+    <div class="puzzle-wall container">
+      <div class="row">
+        <div class="span6 left-col">
+          <!--
+          <div class="puzzle">
+            <div class="actions">
+              <div class="answer">
+                <a href="" class="btn"><i class="icon-comment"></i>回答</a>
+              </div>
+              <div class="other">
+                <a href="" class="btn"><i class="icon-heart"></i>喜欢</a>
+              </div>
+            </div>
+            <a class="type-img" href="">
+              <img src="http://img.hb.aicdn.com/a1f468e6e2adc9bbcb4ef482c2a5803f5bffa274f15e-Ion10M_fw554" />
+            </a>
+            <p class="tags">
+            <i class="icon-tags"></i>
+            <span><a href="">周星驰</a></span>
+            <span><a href="">喜剧</a></span>
+            <span><a href="">无厘头</a></span>
+            <span><a href="">科幻</a></span>
+            </p>
+            <div class="stats clearfix">
+            <span class="fav_cnt"><a href="/">答案(20)</a></span>
+            <span class="fav_cnt"><a href="">喜欢(20)</a></span>
+            </div>
+            <div class="author clearfix">
+              <a href="" title="" class="img"><img src="http://media-cache0.pinterest.com/avatars/cfelizbme-10.jpg" alt="profile img" /></a>
+              <p><a href="">zhuoqun</a> 创建于 <span class="create_time">2012-05-01 11:11:00</span></p>
+            </div>
+          </div>
+
+          <div class="puzzle">
+            <div class="actions">
+              <div class="answer">
+                <a href="" class="btn"><i class="icon-comment"></i>回答</a>
+              </div>
+              <div class="other">
+                <a href="" class="btn"><i class="icon-heart"></i>喜欢</a>
+              </div>
+            </div>
+            <a class="type-img" href="">
+              <img src="http://img1.douban.com/view/photo/photo/public/p1597979193.jpg"/>
+            </a>
+            <p class="tags">
+            <i class="icon-tags"></i>
+            <span><a href="">周星驰</a></span>
+            <span><a href="">喜剧</a></span>
+            <span><a href="">无厘头</a></span>
+            <span><a href="">科幻</a></span>
+            </p>
+            <div class="stats clearfix">
+            <span class="fav_cnt"><a href="/">答案(20)</a></span>
+            <span class="fav_cnt"><a href="">喜欢(20)</a></span>
+            </div>
+            <div class="author clearfix">
+              <a href="" title="" class="img"><img src="http://media-cache0.pinterest.com/avatars/cfelizbme-10.jpg" alt="profile img" /></a>
+              <p><a href="">zhuoqun</a> 创建于 <span class="create_time">2012-05-01 11:11:00</span></p>
+            </div>
+          </div>
+
+          <div class="puzzle">
+            <div class="actions">
+              <div class="answer">
+                <a href="" class="btn"><i class="icon-comment"></i>回答</a>
+              </div>
+              <div class="other">
+                <a href="" class="btn"><i class="icon-heart"></i>喜欢</a>
+              </div>
+            </div>
+            <a class="type-text" href="">
+              <p>广告诱惑我们买车子,买衣服，于是拼命工作买我们不需要的狗屎。我们是被历史遗忘的一代，没有目的,没有地位，没有大战争，没有经济大恐慌，每次大战都是心灵之战，我们的恐慌只是我们的生活。我们从小看电视，希望有一天会成为富翁，明星，摇滚巨星，但是我们不会。那是我们渐渐面对的现实，所以我们非常愤怒。</p>
+            </a>
+            <p class="tags">
+            <i class="icon-tags"></i>
+            <span><a href="">周星驰</a></span>
+            <span><a href="">喜剧</a></span>
+            <span><a href="">无厘头</a></span>
+            <span><a href="">科幻</a></span>
+            </p>
+            <div class="stats clearfix">
+            <span class="fav_cnt"><a href="/">答案(20)</a></span>
+            <span class="fav_cnt"><a href="">喜欢(20)</a></span>
+            </div>
+            <div class="author clearfix">
+              <a href="" title="" class="img"><img src="http://media-cache0.pinterest.com/avatars/cfelizbme-10.jpg" alt="profile img" /></a>
+              <p><a href="">zhuoqun</a> 创建于 <span class="create_time">2012-05-01 11:11:00</span></p>
+            </div>
+          </div>
+
+          <div class="puzzle">
+            <div class="actions">
+              <div class="answer">
+                <a href="" class="btn"><i class="icon-comment"></i>回答</a>
+              </div>
+              <div class="other">
+                <a href="" class="btn"><i class="icon-heart"></i>喜欢</a>
+              </div>
+            </div>
+            <a class="type-img" href="">
+              <img src="http://img1.douban.com/view/photo/albumicon/public/p1597979230.jpg"/>
+            </a>
+            <p class="tags">
+            <i class="icon-tags"></i>
+            <span><a href="">周星驰</a></span>
+            <span><a href="">喜剧</a></span>
+            <span><a href="">无厘头</a></span>
+            <span><a href="">科幻</a></span>
+            </p>
+            <div class="stats clearfix">
+            <span class="fav_cnt"><a href="/">答案(20)</a></span>
+            <span class="fav_cnt"><a href="">喜欢(20)</a></span>
+            </div>
+            <div class="author clearfix">
+              <a href="" title="" class="img"><img src="http://media-cache0.pinterest.com/avatars/cfelizbme-10.jpg" alt="profile img" /></a>
+              <p><a href="">zhuoqun</a> 创建于 <span class="create_time">2012-05-01 11:11:00</span></p>
+            </div>
+          </div>-->
+        </div>
+
+        <div class="span6 right-col">
+          <!--<div class="puzzle">
+            <div class="actions">
+              <div class="answer">
+                <a href="" class="btn"><i class="icon-comment"></i>回答</a>
+              </div>
+              <div class="other">
+                <a href="" class="btn"><i class="icon-heart"></i>喜欢</a>
+              </div>
+            </div>
+            <a class="type-img" href="">
+              <img src="http://img1.douban.com/view/photo/photo/public/p1597979230.jpg" />
+            </a>
+            <p class="tags">
+            <i class="icon-tags"></i>
+            <span><a href="">周星驰</a></span>
+            <span><a href="">喜剧</a></span>
+            <span><a href="">无厘头</a></span>
+            <span><a href="">科幻</a></span>
+            </p>
+            <div class="stats clearfix">
+            <span class="fav_cnt"><a href="/">答案(20)</a></span>
+            <span class="fav_cnt"><a href="">喜欢(20)</a></span>
+            </div>
+            <div class="author clearfix">
+              <a href="" title="" class="img"><img src="http://media-cache0.pinterest.com/avatars/cfelizbme-10.jpg" alt="profile img" /></a>
+              <p><a href="">zhuoqun</a> 创建于 <span class="create_time">2012-05-01 11:11:00</span></p>
+            </div>
+          </div>
+          <div class="puzzle">
+            <div class="actions">
+              <div class="answer">
+                <a href="" class="btn"><i class="icon-comment"></i>回答</a>
+              </div>
+              <div class="other">
+                <a href="" class="btn"><i class="icon-heart"></i>喜欢</a>
+              </div>
+            </div>
+            <a class="type-img" href="">
+              <img src="http://img.hb.aicdn.com/f1fd340c2f6db5c6d4b4cd89731d4a1c75d3a80a304c2-vOHR7t_fw554"/>
+            </a>
+            <p class="tags">
+            <i class="icon-tags"></i>
+            <span><a href="">周星驰</a></span>
+            <span><a href="">喜剧</a></span>
+            <span><a href="">无厘头</a></span>
+            <span><a href="">科幻</a></span>
+            </p>
+            <div class="stats clearfix">
+            <span class="fav_cnt"><a href="/">答案(20)</a></span>
+            <span class="fav_cnt"><a href="">喜欢(20)</a></span>
+            </div>
+            <div class="author clearfix">
+              <a href="" title="" class="img"><img src="http://media-cache0.pinterest.com/avatars/cfelizbme-10.jpg" alt="profile img" /></a>
+              <p><a href="">zhuoqun</a> 创建于 <span class="create_time">2012-05-01 11:11:00</span></p>
+            </div>
+          </div>-->
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="js/libs/jquery-1.7.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/waterfall.js"></script>
+</body>
+</html>

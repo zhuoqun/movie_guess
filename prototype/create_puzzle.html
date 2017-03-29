@@ -1,0 +1,155 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/puzzle.css">
+
+  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+  <header>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="">猜电影</a>
+          <ul class="nav">
+            <li><a href="" target="_blank">首页</a></li>
+            <li><a href="" target="_blank">截图</a></li>
+            <li class="active"><a href="" target="_blank">台词</a></li>
+            <li><a href="" target="_blank">随便试试</a></li>
+          </ul>
+          <form class="navbar-search pull-left">
+            <input class="search-query" type="text" />
+          </form>
+          <ul class="nav pull-right">
+            <li>
+              <a id="login_btn" data-toggle="modal" data-target="#login_modal" href="/account/login">登录</a>
+            </li>
+            <li>
+              <a href="/account/signin">注册</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- #navbar -->
+  
+  </header>
+
+  <div id="wrapper" role="main" class="container">
+
+    <div class="row create-puzzle">
+      <div class="span8">
+        <h2>创建一条影谜</h2>
+        <form action="" method="post" class="form-horizontal">
+          <fieldset>
+            <div class="tabbable">
+              <ul class="nav nav-tabs">
+                <li class="active">
+                <a href="#screenshot" data-toggle="tab" href="#">截图</a>
+                </li>
+                <li><a href="#lines" data-toggle="tab" href="#">台词</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="screenshot">
+
+                  <div class="mode-select clearfix">
+                    <a class="left upload" href="">上传图片</a>
+                    <a class="right url" href="">从网址抓取</a>
+                  </div>
+
+                  <div class="create-form-img">
+                    <div class="mode-switch clearfix">
+                      <a class="to-upload" href="">&gt;上传图片</a>
+                      <a class="to-url" href="">&gt;从网址抓取</a>
+                    </div>
+                    <div class="control-group from-upload">
+                      <label class="control-label" for="from_upload">上传图片</label>
+                      <div class="controls">
+                        <input type="file" id="from_upload" name="from_upload" />
+                        <span class="help-inline"><button class="btn">上传</button></span>
+                      </div>
+                    </div>
+                    <div class="control-group from-url">
+                      <label class="control-label" for="from_url">输入图片 URL</label>
+                      <div class="controls">
+                        <input type="text" id="from_url" name="from_url" />
+                        <span class="help-inline"><button class="btn">抓取</button></span>
+                      </div>
+                    </div>
+                    <div class="control-group from-url">
+                      <label class="control-label"></label>
+                      <div class="controls">
+                        <div id="myCarousel" class="carousel slide">
+                          <!-- Carousel items -->
+                          <div class="carousel-inner">
+                            <div class="active item"><img src="http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg" /></div>
+                            <div class="item"><img src="http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-02.jpg" /></div>
+                          </div>
+                          <!-- Carousel nav -->
+                          <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                          <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label" for="tags">标签</label>
+                      <div class="controls">
+                        <input type="text" class="input-small" name="tags" />
+                        <input type="text" class="input-small" name="tags" />
+                        <input type="text" class="input-small" name="tags" />
+                        <input type="text" class="input-small" name="tags" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="lines">
+                  <div class="control-group">
+                    <label class="control-label" for="lines">台词</label>
+                    <div class="controls">
+                      <textarea id="lines" name="lines"></textarea>
+                      <span class="help-block">你还可以输入 500 字</span>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="tags">标签</label>
+                    <div class="controls">
+                      <input type="text" class="input-small" name="tags" />
+                      <input type="text" class="input-small" name="tags" />
+                      <input type="text" class="input-small" name="tags" />
+                      <input type="text" class="input-small" name="tags" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" disabled="true" type="submit">创建</button>
+              <button class="btn" disabled="true" type="submit">取消</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="span4">
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/libs/jquery-1.7.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/create_puzzle.js"></script>
+  <script src="js/bootstrap-tab.js"></script>
+</body>
+</html>

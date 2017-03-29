@@ -1,0 +1,299 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/puzzle.css">
+
+  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+  <header>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="">猜电影</a>
+          <ul class="nav">
+            <li><a href="" target="_blank">首页</a></li>
+            <li><a href="" target="_blank">截图</a></li>
+            <li class="active"><a href="" target="_blank">台词</a></li>
+            <li><a href="" target="_blank">随便试试</a></li>
+          </ul>
+          <form class="navbar-search pull-left">
+            <input class="search-query" type="text" />
+          </form>
+          <ul class="nav pull-right">
+            <li>
+              <a id="login_btn" data-toggle="modal" data-target="#login_modal" href="/account/login">登录</a>
+            </li>
+            <li>
+              <a href="/account/signin">注册</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- #navbar -->
+  
+  </header>
+
+  <!-- template -->
+  <div id="wrapper" role="main" class="container">
+    <div class="row puzzle">
+      <div class="span4">
+        <div class="usercard">
+          <div class="clearfix">
+            <div class="avatar">
+              <a href="" title="zhuoqun"><img src="http://img3.douban.com/icon/u1534763-5.jpg" width="48px" height="48px" /></a>
+            </div>
+            <div class="info">
+              <h2><a href="">zhuoqun</a></h2>
+              <div class="stats">
+                <a href="">20 关注</a>
+                <span>•</span>
+                <a href="">20 粉丝</a>
+                <span>•</span>
+                <a href="">20 回答</a>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary follow-btn">关注</button>
+        </div>
+
+        <div class="relate-puzzle">
+          <h2>zhuoqun 创建的</h2>
+          <div class="clearfix">
+            <a title="" href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+          </div>
+        </div>
+
+        <div class="relate-puzzle">
+          <h2>相关条目</h2>
+          <div class="clearfix">
+            <a title="" href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+            <a href=""><img src="http://cdntest.aliyun.com/faxianla/water/m457678-1337305970870.jpg" width="60px" height="60px" /></a>
+          </div>
+        </div>
+
+        <div class="sponsor-ads">
+          Ads
+        </div>
+      </div>
+      <div class="span8">
+        <div class="puzzle-detail">
+          <a href="" class="puzzle-img">
+            <img src="http://img.hb.aicdn.com/a1f468e6e2adc9bbcb4ef482c2a5803f5bffa274f15e-Ion10M_fw554" />
+          </a>
+          <div class="meta">
+            <p class="desc">苍井优主演的电影</p>
+            <div class="tags">
+              <span>标签：</span>
+              <a href="">苍井优</a>
+              <a href="">苍井优</a>
+              <a href="">苍井优</a>
+            </div>
+            <div class="actions clearfix">
+              <div class="left">
+                <a class="btn" href=""><i class="icon-retweet"></i>转发</a>
+                <a class="btn" href=""><i class="icon-heart"></i>喜欢</a>
+                <a class="btn" href=""><i class="icon-edit"></i>修改</a>
+              </div>
+              <div class="right">
+                <!-- JiaThis Button BEGIN -->
+                <div id="ckepop">
+                  <span class="jiathis_txt">分享到：</span>
+                  <a class="jiathis_button_douban"></a>
+                  <a class="jiathis_button_tsina"></a>
+                  <a class="jiathis_button_tqq"></a>
+                  <a class="jiathis_button_renren"></a>
+                  <a class="jiathis_button_qzone"></a>
+                  <a class="jiathis_button_email"></a>
+                </div>
+                <script type="text/javascript" src="http://v2.jiathis.com/code/jia.js" charset="utf-8"></script>
+                <!-- JiaThis Button END -->
+              </div>
+            </div>
+          </div>
+          <div class="detail-section no-login">
+            <a href="">登录后回答</a>
+          </div>
+
+          <div class="detail-section add-answer">
+            <a class="avatar" href="">
+              <img src="http://huaban.com/img/default_buddy_icon.jpg" width="50px" height="50px" />
+            </a>
+            <div class="answer-input clearfix">
+              <textarea id="answer_area"></textarea>
+              <button class="btn btn-primary">添加答案</button>
+            </div>
+          </div>
+          <div class="detail-section view-answer">
+            <a href="">查看答案</a>
+          </div>
+
+          <div class="detail-section answers">
+            <h3>所有答案</h3>
+            <ul>
+              <li id="answer-111" class="clearfix">
+                <a class="avatar" href="">
+                  <img src="http://huaban.com/img/default_buddy_icon.jpg" width="50px" height="50px" />
+                </a>
+                <div class="answer-body">
+                  <a class="username" href="">zhuoqun</a>
+                  <p>苍井优x4个谎言</p>
+                  <div class="answer-actions">
+                    <div class="top">
+                      <a href="">分享此回答</a>
+                    </div>
+                    <div class="bot">
+                      <a href="">赞同</a>
+                      <a href="">反对</a>
+                      <a href="">评论(10)</a>
+                      <a href="">修改</a>
+                      <a href="">删除</a>
+                    </div>
+                  </div>
+                </div>
+
+                <ul class="comments">
+                  <li class="clearfix">
+                    <a class="avatar" href="">
+                      <img src="http://huaban.com/img/default_buddy_icon.jpg" width="30px" height="30px" />
+                    </a>
+                    <div class="comment-body">
+                      <textarea id="comment_area"></textarea>
+                      <button class="btn btn-primary">评论</button>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <a class="avatar" href="">
+                      <img src="http://huaban.com/img/default_buddy_icon.jpg" width="30px" height="30px" />
+                    </a>
+                    <div class="comment-body">
+                      <a href="">zhuoqun</a>： 这个片子很好看
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <a class="avatar" href="">
+                      <img src="http://huaban.com/img/default_buddy_icon.jpg" width="30px" height="30px" />
+                    </a>
+                    <div class="comment-body">
+                      <a href="">zhuoqun</a>： 这个片子很好看
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li id="answer-111">
+                <div class="vote">
+                  <a href="">+</a>
+                  <a href="">-</a>
+                </div>
+                <div class="clearfix">
+                  <a class="avatar" href="">
+                    <img src="http://huaban.com/img/default_buddy_icon.jpg" width="50px" height="50px" />
+                  </a>
+                  <div class="answer-body">
+                    <a class="username" href="">zhuoqun</a>
+                    <p>苍井优x4个谎言</p>
+                    <div class="answer-actions">
+                      <div class="top">
+                        <a href="">分享此回答</a>
+                      </div>
+                      <div class="bot">
+                        <a href="">赞同</a>
+                        <a href="">反对</a>
+                        <a href="">评论(10)</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="detail-section likes clearfix">
+            <h3>喜欢(50+)</h3>
+            <a class="avatar" title="user" href="">
+              <img src="http://huaban.com/img/default_buddy_icon.jpg" width="50px" height="50px" />
+            </a>
+            <a class="avatar" title="user" href="">
+              <img src="http://huaban.com/img/default_buddy_icon.jpg" width="50px" height="50px" />
+            </a>
+            <a class="avatar" title="user" href="">
+              <img src="http://huaban.com/img/default_buddy_icon.jpg" width="50px" height="50px" />
+            </a>
+            <a class="avatar" title="user" href="">
+              <img src="http://huaban.com/img/default_buddy_icon.jpg" width="50px" height="50px" />
+            </a>
+            <a class="avatar" title="user" href="">
+              <img src="http://huaban.com/img/default_buddy_icon.jpg" width="50px" height="50px" />
+            </a>
+          </div>
+          <div class="detail-section reposts clearfix">
+            <h3>转发(50+)</h3>
+            <a class="avatar" title="user" href="">
+              <img src="http://huaban.com/img/default_buddy_icon.jpg" width="50px" height="50px" />
+            </a>
+            <a class="avatar" title="user" href="">
+              <img src="http://huaban.com/img/default_buddy_icon.jpg" width="50px" height="50px" />
+            </a>
+            <a class="avatar" title="user" href="">
+              <img src="http://huaban.com/img/default_buddy_icon.jpg" width="50px" height="50px" />
+            </a>
+            <a class="avatar" title="user" href="">
+              <img src="http://huaban.com/img/default_buddy_icon.jpg" width="50px" height="50px" />
+            </a>
+            <a class="avatar" title="user" href="">
+              <img src="http://huaban.com/img/default_buddy_icon.jpg" width="50px" height="50px" />
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#" id="scroll_to_top" style="display:none;">回到顶部</a>
+
+  <script src="js/libs/jquery-1.7.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+          $('#scroll_to_top').fadeIn();
+        } else {
+          $('#scroll_to_top').fadeOut();
+        }
+      });
+
+      $('#scroll_to_top').click(function(e){
+        e.preventDefault();
+        $('body,html').animate({scrollTop: 0}, 800);
+        return false;
+      });
+    });
+  </script>
+</body>
+</html>
