@@ -1,23 +1,23 @@
 $(document).ready(function(){
 
   var items = [];
-  items.push({'img':'http://img.hb.aicdn.com/ac4cd0caabb1b7b2145a84c0a598bb124ae4c0f21b285-x3T0u6_fw192', 'height':'286px'});
-  items.push({'img':'http://img.hb.aicdn.com/278d70a2063e7b39f4df795598ffc7eae254268f9626-dl0Na5_fw192', 'height':'153px'});
-  items.push({'img':'http://img.hb.aicdn.com/3cf39feba551eafc5999d89129e65c7f726f60d751af1-CiTGGZ_fw192', 'height':'799px', 'has_best': 'has_best'});
-  items.push({'img':'http://img.hb.aicdn.com/33bc92fb135afc3218cab2c5b61465dfeb4b2ad15251a-kepBcY_fw192', 'height':'357px'});
-  items.push({'img':'http://img.hb.aicdn.com/9a78511ae81b158a3263b4b52cf23acfac7395d614b76-3NwVJT_fw192', 'height':'271px'});
+  items.push({'img':'img/img-1.jpg', 'height':'286px'});
+  items.push({'img':'img/img-4.jpg', 'height':'153px'});
+  items.push({'img':'img/img-5.jpg', 'height':'799px', 'has_best': 'has_best'});
+  items.push({'img':'img/img-6.jpg', 'height':'357px'});
+  items.push({'img':'img/img-7.jpg', 'height':'271px'});
 
   items.push({'text':'<p>广告诱惑我们买车子，衣服，于是拼命工作买不需要的东西，我们是被历史遗忘的一代，没有目的，没有地位，没有世界大战，没有经济大恐慌，我们的大战只是心灵之战，我们的恐慌只是我们的生活。我们从小看电视，相信有一天会成为富翁，明星或摇滚巨星，但是，我们不会。那是我们逐渐面对着的现实，所以我们非常愤怒。</p>'});
   items.push({'text':'<p>广告诱惑我们买车子，衣服，于是拼命工作买不需要的东西，我们是被历史遗忘的一代，没有目的，没有地位，没有世界大战，没有经济大恐慌，我们的大战只是心灵之战，我们的恐慌只是我们的生活。我们从小看电视，相信有一天会成为富翁，明星或摇滚巨星，但是，我们不会。那是我们逐渐面对着的现实，所以我们非常愤怒。</p>'});
   items.push({'img':'http://img.hb.aicdn.com/33bc92fb135afc3218cab2c5b61465dfeb4b2ad15251a-kepBcY_fw192', 'height':'357px', 'has_best': 'has_best'});
-  items.push({'img':'http://img.hb.aicdn.com/ac4cd0caabb1b7b2145a84c0a598bb124ae4c0f21b285-x3T0u6_fw192', 'height':'286px'});
-  items.push({'img':'http://img.hb.aicdn.com/278d70a2063e7b39f4df795598ffc7eae254268f9626-dl0Na5_fw192', 'height':'153px'});
-  items.push({'img':'http://img.hb.aicdn.com/3cf39feba551eafc5999d89129e65c7f726f60d751af1-CiTGGZ_fw192', 'height':'799px', 'has_best': 'has_best'});
-  items.push({'img':'http://img.hb.aicdn.com/33bc92fb135afc3218cab2c5b61465dfeb4b2ad15251a-kepBcY_fw192', 'height':'357px'});
-  items.push({'img':'http://img.hb.aicdn.com/9a78511ae81b158a3263b4b52cf23acfac7395d614b76-3NwVJT_fw192', 'height':'271px'});
+  items.push({'img':'img/img-1.jpg', 'height':'286px'});
+  items.push({'img':'img/img-4.jpg', 'height':'153px'});
+  items.push({'img':'img/img-5.jpg', 'height':'799px', 'has_best': 'has_best'});
+  items.push({'img':'img/img-6.jpg', 'height':'357px'});
+  items.push({'img':'img/img-7.jpg', 'height':'271px'});
 
-  items.push({'img':'http://img.hb.aicdn.com/33bc92fb135afc3218cab2c5b61465dfeb4b2ad15251a-kepBcY_fw192', 'height':'357px'});
-  items.push({'img':'http://img.hb.aicdn.com/9a78511ae81b158a3263b4b52cf23acfac7395d614b76-3NwVJT_fw192', 'height':'271px'});
+  items.push({'img':'img/img-6.jpg', 'height':'357px'});
+  items.push({'img':'img/img-7.jpg', 'height':'271px'});
 
   var is_adjusting = false;
   // if col count doesn't change after resize, then do not adjust
